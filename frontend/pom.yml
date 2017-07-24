@@ -3,7 +3,7 @@ modelVersion: 4.0.0
 groupId: io.mikael.poc
 artifactId: app-frontend
 name: app-frontend
-version: 1.0-SNAPSHOT
+version: 1.0
 packaging: jar
 
 build:
