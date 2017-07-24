@@ -1,0 +1,20 @@
+modelVersion: 4.0.0
+
+groupId: io.mikael.poc
+artifactId: app-frontend
+name: app-frontend
+version: 1.0-SNAPSHOT
+packaging: jar
+
+build:
+  sourceDirectory: src
+  testSourceDirectory: test
+  plugins:
+  - groupId: com.github.eirslett
+    artifactId: frontend-maven-plugin
+    version: 1.4
+    configuration: { workingDirectory: src, nodeVersion: v6.11.0, yarnVersion: v0.27.5 }
+    executions:
+    - {id: 'install node and yarn', phase: generate-resources, goals: ['install-node-and-yarn']}
+    - {id: 'yarn install', goals: ['yarn'], configuration: { arguments: 'install' }}
+    - {id: 'yarn ci-build', goals: ['yarn'], configuration: { arguments: 'run ci-build' }}
