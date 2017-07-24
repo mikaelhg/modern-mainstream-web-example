@@ -2,7 +2,6 @@ modelVersion: 4.0.0
 
 groupId: io.mikael.poc
 artifactId: app-parent
-name: app-parent
 version: 1.0-SNAPSHOT
 packaging: pom
 
