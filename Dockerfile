@@ -7,5 +7,5 @@ RUN mvn $MAVEN_CLI_OPTS clean package
 
 FROM java:8-alpine
 WORKDIR /app
-COPY --from=mvn /build/target/*.jar /app/app.jar
+COPY --from=mvn /build/backend/target/*.jar /app/app.jar
 CMD /usr/bin/java -Xmx32m -Xms32m -jar /app/app.jar
