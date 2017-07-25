@@ -65,3 +65,7 @@ Operational tools:
 * [Prometheus](https://prometheus.io/) for collecting quantitative data related both to the
   business logic and the application infrastructure.
 
+* [OpenTracing](http://opentracing.io/) and
+  Uber's [Jaeger](https://uber.github.io/jaeger/)
+  for distributed enterprise application tracing, where you need transparency into
+  business processes which have been distributed across many separate applications.
