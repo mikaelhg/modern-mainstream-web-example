@@ -28,8 +28,9 @@ Languages:
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.0
-  with webflux for developing the backend.
+* [Spring Boot](https://projects.spring.io/spring-boot/) 2.0 with
+  [webflux](http://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/web.html#web-reactive)
+  for developing the backend.
 
 * [Angular](https://angular.io/) 4
   with `@angular/cli` for developing the backend.
@@ -48,3 +49,19 @@ Other resources:
   UI budget on features, rather than duplicating standard work.
 
 * [Unsplash](https://unsplash.com/) for great photographic visual elements.
+
+Operational tools:
+
+* [Docker](https://www.docker.com/) and
+  [Docker Compose](https://docs.docker.com/compose/)
+  for building production/staging-deployable application containers.
+  
+* [Traefik](https://traefik.io/) as a reverse HTTP/S proxy and
+  [Let's Encrypt](https://letsencrypt.org/) free HTTPS certificate automation manager.
+
+* [Sentry](https://sentry.io/welcome/) for collecting and managing the application execution
+  errors reports produced by both the backend JVM and the frontend end-user web browsers.
+
+* [Prometheus](https://prometheus.io/) for collecting quantitative data related both to the
+  business logic and the application infrastructure.
+
