@@ -10,7 +10,7 @@ Build tools:
 * [Yarn](https://yarnpkg.com/lang/en/) 0.27.5
   for managing the frontend dependencies, and the frontend static web site build.
 
-Virtual machines:
+Virtual machines / programming language runtimes:
 
 * [JVM](http://openjdk.java.net/projects/jdk8/) 8
   for running the backend, as well as executing the build.
@@ -18,7 +18,7 @@ Virtual machines:
 * [Node.js](https://nodejs.org/en/) v6
   for running the frontend build.
 
-Languages:
+Programming languages:
 
 * [Kotlin](https://kotlinlang.org/) 1.1
   for developing the backend. Compiles into JVM class files in a JRE8-runnable JAR.
@@ -33,19 +33,20 @@ Frameworks and libraries:
   for developing the backend.
 
 * [Angular](https://angular.io/) 4
-  with `@angular/cli` for developing the backend.
+  with `@angular/cli` for developing the frontend.
   
 * [Project Reactor](https://projectreactor.io/)
   for structuring the backend data manipulation and data flow management in a 
   particular manner, which has some potential for reducing long-term maintenance costs.
   
 * [Bootstrap](https://v4-alpha.getbootstrap.com/) v4
-  for structuring and presenting web content in a standardized high-level way.
+  for presenting the combination of web content and visual user interface,
+  and structuring the collaboration between frontend developer and UI/visual designer.
 
 Other resources:
 
 * [Wrap Bootstrap](https://wrapbootstrap.com/) and [Pixelarity](https://pixelarity.com/)
-  for high-level user interface design products which allow you to spend your
+  for high-level user interface design products, which allow you to spend your
   UI budget on features, rather than duplicating standard work.
 
 * [Unsplash](https://unsplash.com/) for great photographic visual elements.
