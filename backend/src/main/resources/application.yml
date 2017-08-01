@@ -8,3 +8,4 @@ logging.level:
   org.xnio: ERROR
   org.apache: ERROR
 
+server.port: 8082

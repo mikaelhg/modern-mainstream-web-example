@@ -41,7 +41,7 @@ Frameworks and libraries:
   
 * [Bootstrap](https://v4-alpha.getbootstrap.com/) v4
   for presenting the combination of web content and visual user interface,
-  and structuring the collaboration between frontend developer and UI/visual designer.
+  and structuring the collaboration between frontend developers and UI/visual designers.
 
 Other resources:
 
@@ -58,7 +58,7 @@ Operational tools:
   for building production/staging-deployable application containers.
   
 * [Traefik](https://traefik.io/) as a reverse HTTP/S proxy and
-  [Let's Encrypt](https://letsencrypt.org/) free HTTPS certificate automation manager.
+  [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
 * [Sentry](https://sentry.io/welcome/) for collecting and managing the application execution
   errors reports produced by both the backend JVM and the frontend end-user web browsers.
@@ -70,3 +70,45 @@ Operational tools:
   Uber's [Jaeger](https://uber.github.io/jaeger/)
   for distributed enterprise application tracing, where you need transparency into
   business processes which have been distributed across many separate applications.
+
+### How to develop
+
+Frontend and backend developers should first collaborate in building a functional paper
+prototype of the minimum viable product, or something equivalent, which allows them to
+specify the most elementary aspects of the interface between the backend and the frontend.
+
+After that, the backend developers should create a mock interface with static data pulled
+from JSON / YAML files provided by the frontend developers, while the frontend developers
+create simple browser-based integration tests for accessing the mock backend.
+
+After that, the development will begin in earnest, and iteration can start.
+
+The developers should use [IntelliJ IDEA](https://www.jetbrains.com/idea/), which has good
+support for all of the elements used in this example, and can be licensed on a monthly basis.
+
+Developers use Docker on their laptops, which should be relatively beefy, to run the various
+infrastructure components locally.
+
+### How to deploy into staging
+
+The ideal way to handle deployment into the shared development environment, or staging,
+is with an automatic deployment from the CI/CD system, which packages the application into
+a Docker container, and executes a Docker Compose command which creates / recreates the
+whole set of containers required for the operation of the service.
+
+### How to deploy into production
+
+Assuming that the application is run in the cloud, the CI/CD system should push any release
+containers (usually as a response of being tagged as releases in Git) into the cloud service's
+container registry. From there, the operators should use the cloud service's own deployment
+tools, if they don't want to use continuous deployment into production.
+
+### How to operate in production
+
+The most important aspect of production operation is automating the collection and presentation
+of the kind of data you'll need to resolve production issues. To that end, there are several
+relevant data collection services attached to the project.
+ 
+Learn how to use those, and how to interpret data. As the business processes managed in the 
+application take shape, add missing debug data into the logged context, using the tools provided
+by the data collection platforms.
