@@ -14,6 +14,7 @@ dependencies:
 - {groupId: io.mikael.poc, artifactId: app-frontend, version: 1.0}
 - {groupId: org.springframework.boot, artifactId: spring-boot-starter-webflux}
 - {groupId: org.jetbrains.kotlin, artifactId: kotlin-stdlib-jre8, version: "${kotlin.version}"}
+- {groupId: org.jetbrains.kotlin, artifactId: kotlin-reflect, version: "${kotlin.version}"}
 - {groupId: com.uber.jaeger, artifactId: jaeger-core, version: 0.20.5}
 - {scope: test, groupId: org.springframework.boot, artifactId: spring-boot-starter-test}
 

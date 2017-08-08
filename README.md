@@ -89,6 +89,10 @@ support for all of the elements used in this example, and can be licensed on a m
 Developers use Docker on their laptops, which should be relatively beefy, to run the various
 infrastructure components locally.
 
+If you genuinely can't afford the commercial version of IDEA, get the free community
+version of IDEA for backend development, and use [VS Code](https://code.visualstudio.com/)
+for frontend TypeScript development. It's not quite as good as IDEA, but it will do in a pinch.
+
 ### How to deploy into staging
 
 The ideal way to handle deployment into the shared development environment, or staging,
