@@ -39,7 +39,7 @@ Frameworks and libraries:
   for structuring the backend data manipulation and data flow management in a 
   particular manner, which has some potential for reducing long-term maintenance costs.
   
-* [Bootstrap](https://v4-alpha.getbootstrap.com/) v4
+* [Bootstrap](https://getbootstrap.com/) v4
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
 

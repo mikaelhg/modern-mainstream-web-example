@@ -8,7 +8,7 @@ packaging: jar
 
 parent: {groupId: org.springframework.boot, artifactId: spring-boot-starter-parent, version: '2.0.0.M3'}
 
-properties: {java.version: '1.8', kotlin.version: '1.1.3-2'}
+properties: {java.version: '1.8', kotlin.version: '1.1.4'}
 
 dependencies:
 - {groupId: io.mikael.poc, artifactId: app-frontend, version: 1.0}
