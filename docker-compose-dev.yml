@@ -6,17 +6,17 @@ services:
     image: postgres:10-alpine
     ports: [ '5432:5432' ]
     environment:
-      POSTGRES_USER: hilma
-      POSTGRES_PASSWORD: hilma
-      POSTGRES_DB: hilma
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: app
 
   rabbitmq:
     image: rabbitmq:3-alpine
     ports: [ '5672:5672' ]
     environment:
-      RABBITMQ_DEFAULT_USER: hilma
-      RABBITMQ_DEFAULT_PASS: hilma
-      RABBITMQ_DEFAULT_VHOST: /hilma
+      RABBITMQ_DEFAULT_USER: app
+      RABBITMQ_DEFAULT_PASS: app
+      RABBITMQ_DEFAULT_VHOST: /app
 
   jaeger:
     image: jaegertracing/all-in-one:latest
