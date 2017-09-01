@@ -93,6 +93,12 @@ If you genuinely can't afford the commercial version of IDEA, get the free commu
 version of IDEA for backend development, and use [VS Code](https://code.visualstudio.com/)
 for frontend TypeScript development. It's not quite as good as IDEA, but it will do in a pinch.
 
+### How to deploy locally, with `docker-compose`
+
+```bash
+docker-compose -f docker-compose-dev.yml -p app up -d
+```
+
 ### How to deploy into staging
 
 The ideal way to handle deployment into the shared development environment, or staging,

@@ -1,4 +1,4 @@
-FROM maven:3 AS mvn
+FROM maven:3-alpine AS mvn
 WORKDIR /build
 COPY . /build
 ENV MAVEN_OPTS "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"

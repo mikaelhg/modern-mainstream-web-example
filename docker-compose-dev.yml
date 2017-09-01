@@ -2,6 +2,15 @@ version: '3'
 
 services:
 
+  app:
+    build: ./
+    image: app:dev
+    ports: [ '18082:8082' ]
+    depends_on:
+      - postgres
+      - rabbitmq
+      - jaeger
+
   postgres:
     image: postgres:10-alpine
     ports: [ '5432:5432' ]
