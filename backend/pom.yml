@@ -6,16 +6,16 @@ name: app-backend
 version: 1.0
 packaging: jar
 
-parent: {groupId: org.springframework.boot, artifactId: spring-boot-starter-parent, version: '2.0.0.M7'}
+parent: {groupId: org.springframework.boot, artifactId: spring-boot-starter-parent, version: '2.0.0.RELEASE'}
 
-properties: {java.version: '1.8', kotlin.version: '1.2.0'}
+properties: {java.version: '1.8', kotlin.version: '1.2.31'}
 
 dependencies:
 - {groupId: io.mikael.poc, artifactId: app-frontend, version: 1.0}
 - {groupId: org.springframework.boot, artifactId: spring-boot-starter-webflux}
 - {groupId: org.jetbrains.kotlin, artifactId: kotlin-stdlib-jre8, version: "${kotlin.version}"}
 - {groupId: org.jetbrains.kotlin, artifactId: kotlin-reflect, version: "${kotlin.version}"}
-- {groupId: com.uber.jaeger, artifactId: jaeger-core, version: 0.20.5}
+- {groupId: com.uber.jaeger, artifactId: jaeger-core, version: 0.26.0}
 - {scope: test, groupId: org.springframework.boot, artifactId: spring-boot-starter-test}
 
 build:
@@ -32,11 +32,3 @@ build:
     - {id: test-compile, phase: test-compile, goals: ['test-compile']}
     dependencies:
     - {groupId: org.jetbrains.kotlin, artifactId: kotlin-maven-allopen, version: "${kotlin.version}"}
-
-repositories:
-- {id: spring-milestones, url: 'https://repo.spring.io/milestone', snapshots: {enabled: false}}
-- {id: spring-snapshots, url: 'https://repo.spring.io/libs-snapshot', snapshots: {enabled: true}}
-
-pluginRepositories:
-- {id: spring-milestones, url: 'https://repo.spring.io/milestone', snapshots: {enabled: false}}
-- {id: spring-snapshots, url: 'https://repo.spring.io/libs-snapshot', snapshots: {enabled: true}}
