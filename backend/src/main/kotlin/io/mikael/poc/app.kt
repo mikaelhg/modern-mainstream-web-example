@@ -36,7 +36,7 @@ class ApplicationRoutes(val applicationHandler: ApplicationHandler) {
         GET("/hello", applicationHandler::helloWorld)
     }.filter { req, next ->
         val sb = tracer.buildSpan("asdf")
-        sb.startActive().use {
+        sb.startActive(true).use {
             next.handle(req)
         }
     }
