@@ -13,7 +13,7 @@ build:
   - groupId: com.github.eirslett
     artifactId: frontend-maven-plugin
     version: 1.6
-    configuration: { workingDirectory: src, installDirectory: target, nodeVersion: v8.10.0, yarnVersion: v1.5.1 }
+    configuration: { workingDirectory: src, installDirectory: target, nodeVersion: v10.14.1, yarnVersion: v1.12.3 }
     executions:
     - {id: 'install node and yarn', phase: generate-resources, goals: ['install-node-and-yarn']}
     - {id: 'yarn install', goals: ['yarn'], configuration: { arguments: 'install' }}
