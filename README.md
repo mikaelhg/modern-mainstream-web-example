@@ -7,32 +7,32 @@ Build tools:
   ([YAML](http://www.yaml.org/)) for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
-* [Yarn](https://yarnpkg.com/lang/en/) 1.3.2
+* [Yarn](https://yarnpkg.com/lang/en/) 1.12.3
   for managing the frontend dependencies, and the frontend static web site build.
 
 Virtual machines / programming language runtimes:
 
-* [JVM](http://openjdk.java.net/projects/jdk8/) 9
+* [JVM](https://adoptopenjdk.net/) 11
   for running the backend, as well as executing the build.
 
-* [Node.js](https://nodejs.org/en/) v8 LTS
+* [Node.js](https://nodejs.org/en/) v10 LTS
   for running the frontend build.
 
 Programming languages:
 
-* [Kotlin](https://kotlinlang.org/) 1.2
+* [Kotlin](https://kotlinlang.org/) 1.3
   for developing the backend. Compiles into JVM class files in a JRE8-runnable JAR.
 
-* [TypeScript](https://www.typescriptlang.org/) 2.6
+* [TypeScript](https://www.typescriptlang.org/) 3.1
   for developing the frontend. Compiles into browser-runnable ES5 JavaScript files.
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.0 with
-  [webflux](http://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/web.html#web-reactive)
+* [Spring Boot](https://projects.spring.io/spring-boot/) 2.1 with
+  [webflux](http://docs.spring.io/spring-framework/docs/5.1.x/spring-framework-reference/web.html#web-reactive)
   for developing the backend.
 
-* [Angular](https://angular.io/) 5
+* [Angular](https://angular.io/) 7
   with `@angular/cli` for developing the frontend.
   
 * [Project Reactor](https://projectreactor.io/)
