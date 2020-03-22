@@ -7,10 +7,8 @@ packaging: pom
 
 parent: {groupId: org.sonatype.oss, artifactId: oss-parent, version: 9}
 
-properties: {java.version: '11', kotlin.version: '1.3.11', jsoup.version: '1.11.3'}
+properties: {java.version: '11', kotlin.version: '1.3.70', jsoup.version: '1.11.3'}
 
 modules:
 - frontend
 - backend
-
-n
