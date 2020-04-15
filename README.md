@@ -2,42 +2,37 @@
 
 Build tools: 
 
-* [Maven](http://maven.apache.org/) 3.5.2 with 
+* [Maven](http://maven.apache.org/) 3.6.3 with 
   [polyglot-maven](https://github.com/takari/polyglot-maven)
   ([YAML](http://www.yaml.org/)) for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
-* [Yarn](https://yarnpkg.com/lang/en/) 1.12.3
+* [Yarn](https://yarnpkg.com/lang/en/) 2
   for managing the frontend dependencies, and the frontend static web site build.
 
 Virtual machines / programming language runtimes:
 
-* [JVM](https://adoptopenjdk.net/) 11
+* [JVM](https://adoptopenjdk.net/) 14
+  with ZGC
   for running the backend, as well as executing the build.
 
-* [Node.js](https://nodejs.org/en/) v10 LTS
+* [Node.js](https://nodejs.org/en/) v12 LTS
   for running the frontend build.
 
 Programming languages:
 
 * [Kotlin](https://kotlinlang.org/) 1.3
-  for developing the backend. Compiles into JVM class files in a JRE8-runnable JAR.
+  for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
 * [TypeScript](https://www.typescriptlang.org/) 3.1
   for developing the frontend. Compiles into browser-runnable ES5 JavaScript files.
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.1 with
-  [webflux](http://docs.spring.io/spring-framework/docs/5.1.x/spring-framework-reference/web.html#web-reactive)
-  for developing the backend.
+* [Spring Boot](https://projects.spring.io/spring-boot/) 2.2
 
-* [Angular](https://angular.io/) 7
-  with `@angular/cli` for developing the frontend.
-  
-* [Project Reactor](https://projectreactor.io/)
-  for structuring the backend data manipulation and data flow management in a 
-  particular manner, which has some potential for reducing long-term maintenance costs.
+* [Vue.js](https://vuejs.org/) 2.6
+  with `@vue/cli` for developing the frontend.
   
 * [Bootstrap](https://getbootstrap.com/) v4
   for presenting the combination of web content and visual user interface,

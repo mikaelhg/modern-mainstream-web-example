@@ -13,8 +13,8 @@ build:
   - groupId: com.github.eirslett
     artifactId: frontend-maven-plugin
     version: 1.9.1
-    configuration: { workingDirectory: src, installDirectory: target, nodeVersion: v10.14.1, yarnVersion: v1.12.3 }
+    configuration: { workingDirectory: src, installDirectory: target, nodeVersion: v12.16.1 }
     executions:
-    - {id: 'install node and yarn', phase: generate-resources, goals: ['install-node-and-yarn']}
-    - {id: 'yarn install', goals: ['yarn'], configuration: { arguments: 'install' }}
-    - {id: 'yarn ci-build', goals: ['yarn'], configuration: { arguments: 'run ci-build' }}
+    - {id: 'install node and npm', phase: generate-resources, goals: ['install-node-and-npm']}
+    - {id: 'npm install', goals: ['npm'], configuration: { arguments: 'install' }}
+    - {id: 'npm ci-build', goals: ['npm'], configuration: { arguments: 'run ci-build' }}
