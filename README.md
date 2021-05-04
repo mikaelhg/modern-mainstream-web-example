@@ -2,9 +2,7 @@
 
 Build tools: 
 
-* [Maven](http://maven.apache.org/) 3.6.3 with 
-  [polyglot-maven](https://github.com/takari/polyglot-maven)
-  ([YAML](http://www.yaml.org/)) for the backend,
+* [Gradle](https://www.gradle.org/) 7.0 with for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
 * [Yarn](https://yarnpkg.com/lang/en/) 2
@@ -12,16 +10,16 @@ Build tools:
 
 Virtual machines / programming language runtimes:
 
-* [JVM](https://adoptopenjdk.net/) 14
+* [JVM](https://adoptopenjdk.net/) 16
   with ZGC
   for running the backend, as well as executing the build.
 
-* [Node.js](https://nodejs.org/en/) v12 LTS
+* [Node.js](https://nodejs.org/en/) v14 LTS
   for running the frontend build.
 
 Programming languages:
 
-* [Kotlin](https://kotlinlang.org/) 1.3
+* [Kotlin](https://kotlinlang.org/) 1.4
   for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
 * [TypeScript](https://www.typescriptlang.org/) 3.1
@@ -29,7 +27,7 @@ Programming languages:
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.2
+* [Spring Boot](https://projects.spring.io/spring-boot/) 2.4
 
 * [Vue.js](https://vuejs.org/) 2.6
   with `@vue/cli` for developing the frontend.
@@ -61,8 +59,8 @@ Operational tools:
 * [Prometheus](https://prometheus.io/) for collecting quantitative data related both to the
   business logic and the application infrastructure.
 
-* [OpenTracing](http://opentracing.io/) and
-  Uber's [Jaeger](https://uber.github.io/jaeger/)
+* [OpenTracing](https://opentracing.io/) and
+  Uber's [Jaeger](https://www.jaegertracing.io/)
   for distributed enterprise application tracing, where you need transparency into
   business processes which have been distributed across many separate applications.
 

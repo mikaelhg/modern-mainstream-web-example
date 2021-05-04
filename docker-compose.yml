@@ -12,7 +12,7 @@ services:
       - jaeger
 
   postgres:
-    image: postgres:12-alpine
+    image: postgres:13-alpine
     ports: [ '5432:5432' ]
     environment:
       POSTGRES_USER: app
@@ -26,6 +26,10 @@ services:
       RABBITMQ_DEFAULT_USER: app
       RABBITMQ_DEFAULT_PASS: app
       RABBITMQ_DEFAULT_VHOST: /app
+
+  nats:
+    image: nats:2-alpine
+    ports: [ '4222:4222' ]
 
   jaeger:
     image: jaegertracing/all-in-one:latest
