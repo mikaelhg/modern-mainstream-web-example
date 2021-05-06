@@ -1,11 +1,10 @@
-FROM maven:3-jdk-14 AS mvn
+FROM adoptopenjdk/openjdk16:alpine AS BUILD
 WORKDIR /build
 COPY . /build
-ENV MAVEN_OPTS "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
-ENV MAVEN_CLI_OPTS "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
-RUN mvn $MAVEN_CLI_OPTS clean package
+RUN --mount=type=cache,target=/root/.gradle \
+      ./gradlew build -s --no-daemon bootJar
 
-FROM openjdk:14-jdk
+FROM adoptopenjdk/openjdk16:alpine
 WORKDIR /app
-COPY --from=mvn /build/backend/target/*.jar /app/app.jar
-CMD /usr/bin/java -Xmx32m -Xms32m -jar /app/app.jar
+COPY --from=BUILD /build/backend/build/libs/app.jar /app/app.jar
+CMD java -XX:+UseZGC -Xmx32m -Xms32m -jar /app/app.jar

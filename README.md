@@ -22,7 +22,7 @@ Programming languages:
 * [Kotlin](https://kotlinlang.org/) 1.4
   for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
-* [TypeScript](https://www.typescriptlang.org/) 3.1
+* [TypeScript](https://www.typescriptlang.org/) 4.2
   for developing the frontend. Compiles into browser-runnable ES5 JavaScript files.
 
 Frameworks and libraries:
@@ -60,7 +60,7 @@ Operational tools:
   business logic and the application infrastructure.
 
 * [OpenTracing](https://opentracing.io/) and
-  Uber's [Jaeger](https://www.jaegertracing.io/)
+  [Jaeger](https://www.jaegertracing.io/)
   for distributed enterprise application tracing, where you need transparency into
   business processes which have been distributed across many separate applications.
 
@@ -89,7 +89,7 @@ for frontend TypeScript development. It's not quite as good as IDEA, but it will
 ### How to deploy locally, with `docker-compose`
 
 ```bash
-docker-compose -f docker-compose-dev.yml -p app up -d
+docker-compose -p app up -d
 ```
 
 ### How to deploy into staging
