@@ -16,3 +16,4 @@ COPY --from=NODE /build/dist /app/frontend
 COPY --from=GRADLE /build/backend/build/libs/app.jar /app/app.jar
 ENV SPRING_RESOURCES_STATIC_LOCATIONS "file:///app/frontend"
 CMD java -XX:+UseZGC -Xmx32m -Xms32m -jar /app/app.jar
+EXPOSE 8082
