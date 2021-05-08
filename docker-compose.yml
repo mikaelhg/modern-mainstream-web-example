@@ -7,6 +7,10 @@ services:
     hostname: app
     environment:
       SERVER_PORT: 80
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgres/app'
+      SPRING_DATASOURCE_USERNAME: app
+      SPRING_DATASOURCE_PASSWORD: app
+      SPRING_REDIS_HOST: redis
     extra_hosts:
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -22,7 +26,7 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:1'
 
   postgres:
-    image: postgres:13-alpine
+    image: 'postgres:13-alpine'
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
@@ -32,19 +36,19 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:8'
 
   redis:
-    image: redis:6-alpine
+    image: 'redis:6-alpine'
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:9'
 
   nats:
-    image: nats:2-alpine
+    image: 'nats:2-alpine'
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:a'
 
   jaeger:
-    image: jaegertracing/all-in-one:latest
+    image: 'jaegertracing/all-in-one:latest'
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'

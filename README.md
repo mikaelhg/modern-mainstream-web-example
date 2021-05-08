@@ -92,6 +92,12 @@ for frontend TypeScript development. It's not quite as good as IDEA, but it will
 docker-compose -p app up -d
 ```
 
+After you've started the application, you can browse these links:
+
+[Application](http://[fd0d:a9c5:724a:9d35:a:a:a:1]/),
+[NATS](http://[fd0d:a9c5:724a:9d35:a:a:a:a]:8222/),
+[Jaeger](http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search).
+
 ### How to deploy into staging
 
 The ideal way to handle deployment into the shared development environment, or staging,
