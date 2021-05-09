@@ -5,13 +5,12 @@ Build tools:
 * [Gradle](https://www.gradle.org/) 7.0 with for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
-* [Yarn](https://yarnpkg.com/lang/en/) 2
+* [Yarn](https://yarnpkg.com/) 2
   for managing the frontend dependencies, and the frontend static web site build.
 
 Virtual machines / programming language runtimes:
 
-* [JVM](https://adoptopenjdk.net/) 16
-  with ZGC
+* [JDK](https://adoptopenjdk.net/) 16 with ZGC
   for running the backend, as well as executing the build.
 
 * [Node.js](https://nodejs.org/en/) v14 LTS

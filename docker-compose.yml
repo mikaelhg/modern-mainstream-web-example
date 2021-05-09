@@ -20,7 +20,6 @@ services:
       - postgres
       - nats
       - redis
-      - jaeger
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:1'
@@ -47,11 +46,11 @@ services:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:a'
 
-  jaeger:
-    image: 'jaegertracing/all-in-one:latest'
-    networks:
-      backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
+#  jaeger:
+#    image: 'jaegertracing/all-in-one:latest'
+#    networks:
+#      backend_net:
+#        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
 
 networks:
   backend_net:
