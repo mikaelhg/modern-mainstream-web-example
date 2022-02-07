@@ -2,7 +2,7 @@
 
 Build tools: 
 
-* [Gradle](https://www.gradle.org/) 7.0 with for the backend,
+* [Gradle](https://www.gradle.org/) 7.3.3 with for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
 * [Yarn](https://yarnpkg.com/) 2
@@ -10,15 +10,15 @@ Build tools:
 
 Virtual machines / programming language runtimes:
 
-* [JDK](https://adoptopenjdk.net/) 16 with ZGC
+* [JDK](https://adoptopenjdk.net/) 17 with ZGC
   for running the backend, as well as executing the build.
 
-* [Node.js](https://nodejs.org/en/) v14 LTS
+* [Node.js](https://nodejs.org/en/) LTS
   for running the frontend build.
 
 Programming languages:
 
-* [Kotlin](https://kotlinlang.org/) 1.4
+* [Kotlin](https://kotlinlang.org/) 1.6
   for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
 * [TypeScript](https://www.typescriptlang.org/) 4.2
@@ -28,14 +28,16 @@ Frameworks and libraries:
 
 * [Spring Boot](https://projects.spring.io/spring-boot/) 2.4
 
-* [Vue.js](https://vuejs.org/) 2.6
+* [Vue.js](https://vuejs.org/) 3
   with `@vue/cli` for developing the frontend.
   
-* [Bootstrap](https://getbootstrap.com/) v4
+* [Bootstrap](https://getbootstrap.com/) v5
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
 
 Other resources:
+
+* CoreUI
 
 * [Wrap Bootstrap](https://wrapbootstrap.com/) and [Pixelarity](https://pixelarity.com/)
   for high-level user interface design products, which allow you to spend your
