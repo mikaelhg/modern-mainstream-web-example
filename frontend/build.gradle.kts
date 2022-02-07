@@ -1,5 +1,5 @@
 plugins {
-    id("com.moowork.node") version "1.3.1"
+    id("com.github.node-gradle.node") version "3.1.1"
 }
 
 dependencies {
@@ -7,5 +7,6 @@ dependencies {
 }
 
 node {
-    version = "14.16.1"
+//    version = "16.13.2"
 }
+
