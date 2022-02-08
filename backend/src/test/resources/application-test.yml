@@ -13,3 +13,5 @@ logging.pattern:
     %d{HH:mm:ss.SSS} | %5p | %logger{5} | %m%n
 
 server.port: 8082
+
+server.error.whitelabel.enabled: false
