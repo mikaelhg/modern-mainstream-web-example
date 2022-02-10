@@ -2,7 +2,7 @@
 
 Build tools: 
 
-* [Gradle](https://www.gradle.org/) 7.3.3 with for the backend,
+* [Gradle](https://www.gradle.org/) 7.4 with for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
 * [Yarn](https://yarnpkg.com/) 2
@@ -21,15 +21,14 @@ Programming languages:
 * [Kotlin](https://kotlinlang.org/) 1.6
   for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
-* [TypeScript](https://www.typescriptlang.org/) 4.2
-  for developing the frontend. Compiles into browser-runnable ES5 JavaScript files.
+* JavaScript for the frontend.
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.4
+* [Spring Boot](https://projects.spring.io/spring-boot/) 2.6
 
 * [Vue.js](https://vuejs.org/) 3
-  with `@vue/cli` for developing the frontend.
+  with [Vite](https://vitejs.dev/) for developing the frontend.
   
 * [Bootstrap](https://getbootstrap.com/) v5
   for presenting the combination of web content and visual user interface,
@@ -37,7 +36,8 @@ Frameworks and libraries:
 
 Other resources:
 
-* CoreUI
+* [CoreUI](https://coreui.io/)
+  for a NPM-packaged Bootstrap web interface for administrative user interfaces.
 
 * [Wrap Bootstrap](https://wrapbootstrap.com/) and [Pixelarity](https://pixelarity.com/)
   for high-level user interface design products, which allow you to spend your
@@ -85,7 +85,7 @@ infrastructure components locally.
 
 If you genuinely can't afford the commercial version of IDEA, get the free community
 version of IDEA for backend development, and use [VS Code](https://code.visualstudio.com/)
-for frontend TypeScript development. It's not quite as good as IDEA, but it will do in a pinch.
+for frontend development. It's not quite as good as IDEA, but it will do in a pinch.
 
 ### How to deploy locally, with `docker-compose`
 
