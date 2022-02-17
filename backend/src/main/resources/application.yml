@@ -14,3 +14,5 @@ server.port: 8082
 spring.web.resources.static-locations: 'file:./frontend/dist'
 
 server.error.whitelabel.enabled: true
+
+opentracing.jaeger.enabled: false

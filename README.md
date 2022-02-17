@@ -10,7 +10,7 @@ Build tools:
 
 Virtual machines / programming language runtimes:
 
-* [JDK](https://adoptopenjdk.net/) 17 with ZGC
+* [JDK](https://adoptium.net/) 17 with ZGC
   for running the backend, as well as executing the build.
 
 * [Node.js](https://nodejs.org/en/) LTS
@@ -54,13 +54,13 @@ Operational tools:
 * [Traefik](https://traefik.io/) as a reverse HTTP/S proxy and
   [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
-* [Sentry](https://sentry.io/welcome/) for collecting and managing the application execution
-  errors reports produced by both the backend JVM and the frontend end-user web browsers.
+* [Grafana Loki](https://grafana.com/oss/loki/) for collecting log events and errors
+  into a searchable and trackable database.
+  
+* [Prometheus](https://prometheus.io/) for collecting quantitative data related both
+  to the business logic and the application infrastructure.
 
-* [Prometheus](https://prometheus.io/) for collecting quantitative data related both to the
-  business logic and the application infrastructure.
-
-* [OpenTracing](https://opentracing.io/) and
+* [OpenTelemetry](https://opentelemetry.io/) and
   [Jaeger](https://www.jaegertracing.io/)
   for distributed enterprise application tracing, where you need transparency into
   business processes which have been distributed across many separate applications.

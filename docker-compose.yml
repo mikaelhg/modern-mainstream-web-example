@@ -11,6 +11,10 @@ services:
       SPRING_DATASOURCE_USERNAME: app
       SPRING_DATASOURCE_PASSWORD: app
       SPRING_REDIS_HOST: redis
+      OPENTRACING_JAEGER_ENABLED: true
+      OPENTRACING_JAEGER_UDP_SENDER_HOST: jaeger
+      OPENTRACING_JAEGER_UDP_SENDER_PORT: 9000
+      # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
     extra_hosts:
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -46,11 +50,11 @@ services:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:a'
 
-#  jaeger:
-#    image: 'jaegertracing/all-in-one:latest'
-#    networks:
-#      backend_net:
-#        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
+  jaeger:
+    image: 'jaegertracing/all-in-one:1.31'
+    networks:
+      backend_net:
+        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
 
 networks:
   backend_net:
