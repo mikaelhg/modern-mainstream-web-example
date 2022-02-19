@@ -13,7 +13,7 @@ services:
       SPRING_REDIS_HOST: redis
       OPENTRACING_JAEGER_ENABLED: true
       OPENTRACING_JAEGER_UDP_SENDER_HOST: jaeger
-      OPENTRACING_JAEGER_UDP_SENDER_PORT: 9000
+      OPENTRACING_JAEGER_UDP_SENDER_PORT: 6831
       # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
     extra_hosts:
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
