@@ -9,10 +9,10 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
-@SpringBootTest(classes = [Application::class, ApiController::class, MockTracerConfiguration::class])
+@SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class IntegrationTests {
+class ApiTests {
 
     @Autowired
     lateinit var mockMvc: MockMvc
