@@ -97,7 +97,8 @@ After you've started the application, you can browse these links:
 
 [Application](http://[fd0d:a9c5:724a:9d35:a:a:a:1]/),
 [NATS](http://[fd0d:a9c5:724a:9d35:a:a:a:a]:8222/),
-[Jaeger](http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search).
+[Jaeger](http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search),
+[Grafana](http://[fd0d:a9c5:724a:9d35:a:a:a:e]:3000/).
 
 ### How to deploy into staging
 

@@ -16,6 +16,7 @@ services:
       OPENTRACING_JAEGER_UDP_SENDER_HOST: jaeger
       OPENTRACING_JAEGER_UDP_SENDER_PORT: 6831
       # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
+      SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
     extra_hosts:
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -56,6 +57,32 @@ services:
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
+
+  loki:
+    image: 'grafana/loki:2.4.1'
+    ports:
+      - "3100:3100"
+    command: '-config.file=/etc/loki/local-config.yaml'
+    networks:
+      backend_net:
+        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:c'
+
+#  promtail:
+#    image: 'grafana/promtail:2.4.1'
+#    volumes:
+#      - ./promtail:/var/log
+#    command: '-config.file=/etc/promtail/config.yml'
+#    networks:
+#      backend_net:
+#        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:d'
+
+  grafana:
+    image: 'grafana/grafana:8.3.4'
+    ports:
+      - "3000:3000"
+    networks:
+      backend_net:
+        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:e'
 
 networks:
   backend_net:
