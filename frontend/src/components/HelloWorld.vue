@@ -5,7 +5,9 @@ defineProps({
   msg: String
 })
 
-const count = ref(0)
+const count = ref(0);
+
+setInterval(() => count.value++, 1000);
 </script>
 
 <template>

@@ -1,9 +1,13 @@
 <script setup>
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import '@coreui/coreui/dist/css/coreui.min.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+
 </script>
 
 <template>
-  <HelloWorld msg="Application test" />
+  <HelloWorld msg="Modern mainstream web application example" />
 </template>
 
 <style>

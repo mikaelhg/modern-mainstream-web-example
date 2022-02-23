@@ -21,6 +21,7 @@ repositories {
 }
 
 dependencies {
+    // runtimeOnly(project(":frontend"))
     implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web") {
