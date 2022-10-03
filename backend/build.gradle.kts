@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.6.3"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.6.10"
-    kotlin("plugin.spring") version "1.6.10"
+    id("org.springframework.boot") version "3.0.0-SNAPSHOT"
+    id("io.spring.dependency-management") version "1.0.14.RELEASE"
+    kotlin("jvm") version "1.7.20"
+    kotlin("plugin.spring") version "1.7.20"
+    kotlin("plugin.jpa") version "1.7.20"
 }
 
 group = "io.mikael.poc"
@@ -18,6 +19,8 @@ java {
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://repo.spring.io/milestone") }
+    maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
 dependencies {
@@ -27,7 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude("org.springframework.boot", "spring-boot-starter-tomcat")
     }
-    implementation("io.opentracing.contrib:opentracing-spring-jaeger-web-starter:3.3.1")
+    implementation("io.opentelemetry.instrumentation:opentelemetry-spring-starter:1.16.0-alpha")
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

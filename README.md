@@ -2,15 +2,15 @@
 
 Build tools: 
 
-* [Gradle](https://www.gradle.org/) 7.4 with for the backend,
+* [Gradle](https://www.gradle.org/) with for the backend,
   managing the frontend build, and mushing the frontend and backend together.
 
-* [Yarn](https://yarnpkg.com/) 2
+* [Yarn](https://yarnpkg.com/)
   for managing the frontend dependencies, and the frontend static web site build.
 
 Virtual machines / programming language runtimes:
 
-* [JDK](https://adoptium.net/) 17 with ZGC
+* [JDK](https://adoptium.net/) LTS with ZGC
   for running the backend, as well as executing the build.
 
 * [Node.js](https://nodejs.org/en/) LTS
@@ -18,19 +18,19 @@ Virtual machines / programming language runtimes:
 
 Programming languages:
 
-* [Kotlin](https://kotlinlang.org/) 1.6
+* [Kotlin](https://kotlinlang.org/)
   for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
 
 * JavaScript for the frontend.
 
 Frameworks and libraries:
 
-* [Spring Boot](https://projects.spring.io/spring-boot/) 2.6
+* [Spring Boot](https://projects.spring.io/spring-boot/)
 
-* [Vue.js](https://vuejs.org/) 3
+* [Vue.js](https://vuejs.org/)
   with [Vite](https://vitejs.dev/) for developing the frontend.
   
-* [Bootstrap](https://getbootstrap.com/) v5
+* [Bootstrap](https://getbootstrap.com/)
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
 
@@ -51,11 +51,12 @@ Operational tools:
   [Docker Compose](https://docs.docker.com/compose/)
   for building production/staging-deployable application containers.
   
-* [Traefik](https://traefik.io/) as a reverse HTTP/S proxy and
+* [Traefik](https://traefik.io/) or 
+  [Caddy](https://caddyserver.com/) as a reverse HTTP/S proxy and
   [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
-* [Grafana Loki](https://grafana.com/oss/loki/) for collecting log events and errors
-  into a searchable and trackable database.
+* [Grafana Loki](https://grafana.com/oss/loki/)
+  for collecting log events and errors into a searchable and trackable database.
   
 * [Prometheus](https://prometheus.io/) for collecting quantitative data related both
   to the business logic and the application infrastructure.
