@@ -91,7 +91,7 @@ for frontend development. It's not quite as good as IDEA, but it will do in a pi
 ### How to deploy locally, with `docker-compose`
 
 ```bash
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up
+docker compose up
 ```
 
 After you've started the application, you can browse these links:

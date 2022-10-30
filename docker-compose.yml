@@ -12,7 +12,7 @@ services:
       SPRING_DATASOURCE_USERNAME: app
       SPRING_DATASOURCE_PASSWORD: app
       SPRING_REDIS_HOST: redis
-      OPENTRACING_JAEGER_ENABLED: true
+      OPENTRACING_JAEGER_ENABLED: "true"
       OPENTRACING_JAEGER_UDP_SENDER_HOST: jaeger
       OPENTRACING_JAEGER_UDP_SENDER_PORT: 6831
       # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
@@ -31,7 +31,7 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:1'
 
   postgres:
-    image: 'postgres:14-alpine'
+    image: 'postgres:15-alpine'
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
@@ -41,7 +41,7 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:8'
 
   redis:
-    image: 'redis:6-alpine'
+    image: 'redis:7-alpine'
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -53,13 +53,13 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:a'
 
   jaeger:
-    image: 'jaegertracing/all-in-one:1.31'
+    image: 'jaegertracing/all-in-one:1.38'
     networks:
       backend_net:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
 
   loki:
-    image: 'grafana/loki:2.4.1'
+    image: 'grafana/loki:2.6.1'
     ports:
       - "3100:3100"
     command: '-config.file=/etc/loki/local-config.yaml'
@@ -68,7 +68,7 @@ services:
         ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:c'
 
 #  promtail:
-#    image: 'grafana/promtail:2.4.1'
+#    image: 'grafana/promtail:2.6.1'
 #    volumes:
 #      - ./promtail:/var/log
 #    command: '-config.file=/etc/promtail/config.yml'
@@ -77,7 +77,7 @@ services:
 #        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:d'
 
   grafana:
-    image: 'grafana/grafana:8.3.4'
+    image: 'grafana/grafana-oss:9.2.2'
     ports:
       - "3000:3000"
     networks:
