@@ -17,18 +17,21 @@ services:
       OPENTRACING_JAEGER_UDP_SENDER_PORT: 6831
       # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
       SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
-    extra_hosts:
+    extra_hosts: &these_hosts
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
       - 'nats:fd0d:a9c5:724a:9d35:a:a:a:a'
       - 'jaeger:fd0d:a9c5:724a:9d35:a:a:a:b'
+      - 'loki:fd0d:a9c5:724a:9d35:a:a:a:c'
+      - 'promtail:fd0d:a9c5:724a:9d35:a:a:a:d'
+      - 'grafana:fd0d:a9c5:724a:9d35:a:a:a:e'
     depends_on:
       - postgres
       - nats
       - redis
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:1'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
 
   postgres:
     image: 'postgres:15-alpine'
@@ -36,42 +39,48 @@ services:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
       POSTGRES_DB: app
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:8'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:8
 
   redis:
     image: 'redis:7-alpine'
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:9'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:9
 
   nats:
     image: 'nats:2-alpine'
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:a'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:a
 
   jaeger:
-    image: 'jaegertracing/all-in-one:1.38'
+    image: 'jaegertracing/all-in-one:1.39'
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:b'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:b
 
   loki:
     image: 'grafana/loki:2.6.1'
     ports:
       - "3100:3100"
     command: '-config.file=/etc/loki/local-config.yaml'
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:c'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:c
 
 #  promtail:
 #    image: 'grafana/promtail:2.6.1'
 #    volumes:
 #      - ./promtail:/var/log
 #    command: '-config.file=/etc/promtail/config.yml'
+#    extra_hosts: *these_hosts
 #    networks:
 #      backend_net:
 #        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:d'
@@ -80,9 +89,10 @@ services:
     image: 'grafana/grafana-oss:9.2.2'
     ports:
       - "3000:3000"
+    extra_hosts: *these_hosts
     networks:
       backend_net:
-        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:e'
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:e
 
 networks:
   backend_net:
