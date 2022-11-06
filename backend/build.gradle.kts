@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    // runtimeOnly(project(":frontend"))
+    implementation(project(":frontend"))
     implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web") {
@@ -40,6 +40,10 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
+    testImplementation("org.junit.platform:junit-platform-suite-engine:1.9.1")
+    testImplementation("org.testcontainers:junit-jupiter:1.17.5")
+
 }
 
 tasks.withType<BootBuildImage> {

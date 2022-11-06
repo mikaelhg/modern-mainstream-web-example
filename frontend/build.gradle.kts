@@ -11,7 +11,7 @@ node {
 
 val buildTask = tasks.register<NpxTask>("buildWebapp") {
     command.set("vite")
-    args.set(listOf("build", "--outDir", "${project.buildDir}/webapp"))
+    args.set(listOf("build", "--outDir", "${project.buildDir}/webapp/static"))
     dependsOn(tasks.npmInstall)
     outputs.dir("${project.buildDir}/webapp")
 }
