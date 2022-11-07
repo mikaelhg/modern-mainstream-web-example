@@ -1,19 +1,12 @@
-FROM node:lts-alpine AS NODE
-WORKDIR /build
-COPY frontend/. /build
-RUN --mount=type=cache,id=modern-node,target=/build/node_modules \
-      npm install && npm run build
-
-FROM amazoncorretto:19-alpine AS GRADLE
+FROM eclipse-temurin:19-jammy AS GRADLE
 WORKDIR /build
 COPY . /build
 RUN --mount=type=cache,id=modern-gradle,target=/root/.gradle \
-      ./gradlew clean -s --no-daemon :backend:bootJar
+      ./gradlew clean -s :backend:bootJar
 
-FROM amazoncorretto:19-alpine
+FROM eclipse-temurin:19-jre-jammy
 WORKDIR /app
-COPY --from=NODE /build/dist /app/frontend
 COPY --from=GRADLE /build/backend/build/libs/app.jar /app/backend/app.jar
-ENV SPRING_WEB_RESOURCES_STATIC_LOCATIONS "file:/app/frontend"
 CMD java -XX:+UseZGC -Xmx64m -Xms64m -jar /app/backend/app.jar
+USER 1000:1000
 EXPOSE 8082

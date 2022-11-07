@@ -4,7 +4,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 plugins {
     id("org.springframework.boot") version "3.0.0-RC1"
     id("io.spring.dependency-management") version "1.1.0"
-    id("org.graalvm.buildtools.native") version "0.9.16"
+    id("org.graalvm.buildtools.native") version "0.9.17"
     kotlin("jvm") version "1.7.20"
     kotlin("plugin.spring") version "1.7.20"
     kotlin("plugin.jpa") version "1.7.20"
@@ -43,7 +43,6 @@ dependencies {
     testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
     testImplementation("org.junit.platform:junit-platform-suite-engine:1.9.1")
     testImplementation("org.testcontainers:junit-jupiter:1.17.5")
-
 }
 
 tasks.withType<BootBuildImage> {

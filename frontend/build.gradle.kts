@@ -7,6 +7,7 @@ plugins {
 
 node {
     version.set("18.12.1")
+    download.set(true)
 }
 
 val buildTask = tasks.register<NpxTask>("buildWebapp") {
