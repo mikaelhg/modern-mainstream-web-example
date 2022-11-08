@@ -1,4 +1,5 @@
-spring.jackson.serialization.INDENT_OUTPUT: true
+spring.jackson.serialization:
+    indent-output: true
 
 logging.level:
   org.springframework: ERROR

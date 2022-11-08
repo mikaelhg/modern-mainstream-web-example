@@ -1,6 +1,7 @@
 {
-  "name": "vite-project",
+  "name": "mmwe-frontend",
   "version": "0.0.0",
+  "private": "true",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
