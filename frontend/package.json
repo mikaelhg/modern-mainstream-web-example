@@ -11,6 +11,7 @@
     "@coreui/coreui": "^4.2.2",
     "@coreui/vue": "^4.4.0",
     "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
     "vue": "^3.2.41"
   },
   "devDependencies": {

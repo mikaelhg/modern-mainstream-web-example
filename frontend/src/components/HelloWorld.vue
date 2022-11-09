@@ -6,8 +6,7 @@ defineProps({
 })
 
 const count = ref(0);
-
-function apiCall() {
+const apiCall = () => {
     fetch("/api/counter")
         .then((response) => response.json())
         .then((data) => count.value = data.counter);
@@ -15,14 +14,19 @@ function apiCall() {
 
 setInterval(apiCall, 1000);
 </script>
-4
+
 <template>
-  <h1>{{ msg }}</h1>
-  <button type="button" @click="count++">count is: {{ count }}</button>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">{{ msg }}</h1>
+                <p class="lead text-muted">
+                    The count is: {{ count }}.
+                </p>
+            </div>
+        </div>
+    </section>
 </template>
 
 <style scoped>
-a {
-  color: #42b983;
-}
 </style>
