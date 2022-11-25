@@ -19,7 +19,7 @@ Virtual machines / programming language runtimes:
 Programming languages:
 
 * [Kotlin](https://kotlinlang.org/)
-  for developing the backend. Compiles into JVM class files into a JDK11-runnable JAR.
+  for developing the backend. Compiles into JVM class files into a JDK17-runnable JAR.
 
 * JavaScript for the frontend.
 

@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    id("org.springframework.boot") version "3.0.0-RC1"
+    id("org.springframework.boot") version "3.0.0"
     id("io.spring.dependency-management") version "1.1.0"
     id("org.graalvm.buildtools.native") version "0.9.17"
-    kotlin("jvm") version "1.7.20"
-    kotlin("plugin.spring") version "1.7.20"
-    kotlin("plugin.jpa") version "1.7.20"
+    kotlin("jvm") version "1.7.21"
+    kotlin("plugin.spring") version "1.7.21"
+    kotlin("plugin.jpa") version "1.7.21"
 }
 
 group = "io.mikael.poc"
@@ -21,8 +21,6 @@ java {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://repo.spring.io/milestone") }
-    // maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
 dependencies {
@@ -46,7 +44,8 @@ dependencies {
 }
 
 tasks.withType<BootBuildImage> {
-    buildpacks.set(listOf("gcr.io/paketo-buildpacks/bellsoft-liberica:9.9.0-ea", "gcr.io/paketo-buildpacks/java-native-image"))
+    buildpacks.set(listOf("gcr.io/paketo-buildpacks/bellsoft-liberica:9.10.0",
+                          "gcr.io/paketo-buildpacks/java-native-image"))
 }
 
 tasks.withType<KotlinCompile> {
