@@ -1,5 +1,6 @@
 target/
 .idea/
+.fleet/
 *.iml
 /dump.*
 /application-default.yml

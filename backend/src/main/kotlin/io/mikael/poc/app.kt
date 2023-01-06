@@ -10,5 +10,5 @@ object Main {
     }
 }
 
-@SpringBootApplication(scanBasePackageClasses = [Application::class])
+@SpringBootApplication
 class Application

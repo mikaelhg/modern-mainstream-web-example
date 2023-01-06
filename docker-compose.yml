@@ -59,14 +59,14 @@ services:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:a
 
   jaeger:
-    image: 'jaegertracing/all-in-one:1.39'
+    image: 'jaegertracing/all-in-one:1.40'
     extra_hosts: *these_hosts
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:b
 
   loki:
-    image: 'grafana/loki:2.6.1'
+    image: 'grafana/loki:2.7.1'
     ports:
       - "3100:3100"
     command: '-config.file=/etc/loki/local-config.yaml'
@@ -86,7 +86,7 @@ services:
 #        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:d'
 
   grafana:
-    image: 'grafana/grafana-oss:9.2.2'
+    image: 'grafana/grafana-oss:9.3.2'
     ports:
       - "3000:3000"
     extra_hosts: *these_hosts
