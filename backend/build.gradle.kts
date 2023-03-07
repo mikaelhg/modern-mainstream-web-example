@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    id("org.springframework.boot") version "3.0.1"
+    id("org.springframework.boot") version "3.0.4"
     id("io.spring.dependency-management") version "1.1.0"
-    id("org.graalvm.buildtools.native") version "0.9.19"
+    id("org.graalvm.buildtools.native") version "0.9.20"
     kotlin("jvm") version "1.8.0"
-    kotlin("plugin.spring") version "1.8.0"
-    kotlin("plugin.jpa") version "1.8.0"
+    kotlin("plugin.spring") version "1.8.10"
+    kotlin("plugin.jpa") version "1.8.10"
 }
 
 group = "io.mikael.poc"
@@ -44,14 +44,14 @@ dependencies {
 }
 
 tasks.withType<BootBuildImage> {
-    buildpacks.set(listOf("gcr.io/paketo-buildpacks/bellsoft-liberica:9.10.0",
+    buildpacks.set(listOf("gcr.io/paketo-buildpacks/bellsoft-liberica:9",
                           "gcr.io/paketo-buildpacks/java-native-image"))
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+        jvmTarget = "19"
     }
 }
 
