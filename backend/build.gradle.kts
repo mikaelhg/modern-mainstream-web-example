@@ -6,7 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
     id("org.graalvm.buildtools.native") version "0.9.20"
     kotlin("jvm") version "1.8.0"
-    kotlin("plugin.spring") version "1.8.10"
+    kotlin("plugin.spring") version "2.1.10"
     kotlin("plugin.jpa") version "1.8.10"
 }
 
