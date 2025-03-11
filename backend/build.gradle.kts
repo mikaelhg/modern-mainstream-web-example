@@ -40,7 +40,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
     testImplementation("org.junit.platform:junit-platform-suite-engine:1.9.1")
-    testImplementation("org.testcontainers:junit-jupiter:1.17.6")
+    testImplementation("org.testcontainers:junit-jupiter:1.20.6")
 }
 
 tasks.withType<BootBuildImage> {
