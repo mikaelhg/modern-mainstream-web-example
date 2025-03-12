@@ -34,7 +34,7 @@ services:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
 
   postgres:
-    image: 'postgres:15-alpine'
+    image: 'postgres:17-alpine'
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
@@ -59,7 +59,7 @@ services:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:a
 
   jaeger:
-    image: 'jaegertracing/all-in-one:1.40'
+    image: 'jaegertracing/all-in-one:latest'
     extra_hosts: *these_hosts
     networks:
       backend_net:
