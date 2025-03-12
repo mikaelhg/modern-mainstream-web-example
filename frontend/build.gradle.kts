@@ -6,15 +6,16 @@ plugins {
 }
 
 node {
-    version.set("18.14.2")
-    download.set(true)
+    version = "22.14.0"
+    download = true
 }
 
 val buildTask = tasks.register<NpxTask>("buildWebapp") {
-    command.set("vite")
-    args.set(listOf("build", "--outDir", "${project.buildDir}/webapp/static"))
+    val buildDir = project.layout.buildDirectory.get().asFile.absolutePath
+    command = "vite"
+    args.set(listOf("build", "--outDir", "${buildDir}/webapp/static"))
     dependsOn(tasks.npmInstall)
-    outputs.dir("${project.buildDir}/webapp")
+    outputs.dir("${buildDir}/webapp")
 }
 
 sourceSets {

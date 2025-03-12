@@ -8,11 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@coreui/coreui": "^4.2.2",
-    "@coreui/vue": "^4.4.0",
-    "bootstrap": "^5.2.2",
-    "bootstrap-icons": "^1.9.1",
-    "vue": "^3.2.41"
+    "@coreui/coreui": "^5.2.0",
+    "@coreui/vue": "^5.4.1",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5",
