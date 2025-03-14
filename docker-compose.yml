@@ -66,7 +66,7 @@ services:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:b
 
   loki:
-    image: 'grafana/loki:2.7.1'
+    image: 'grafana/loki:latest'
     ports:
       - "3100:3100"
     command: '-config.file=/etc/loki/local-config.yaml'
@@ -75,18 +75,8 @@ services:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:c
 
-#  promtail:
-#    image: 'grafana/promtail:2.6.1'
-#    volumes:
-#      - ./promtail:/var/log
-#    command: '-config.file=/etc/promtail/config.yml'
-#    extra_hosts: *these_hosts
-#    networks:
-#      backend_net:
-#        ipv6_address: 'fd0d:a9c5:724a:9d35:a:a:a:d'
-
   grafana:
-    image: 'grafana/grafana-oss:9.3.2'
+    image: 'grafana/grafana-oss:latest'
     ports:
       - "3000:3000"
     extra_hosts: *these_hosts
