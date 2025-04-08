@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
 
   app:
     build: .
-    image: 'modern:latest'
+    image: 'mikael.io/modern:latest'
     hostname: app
     environment:
       SERVER_PORT: 80
@@ -29,6 +27,9 @@ services:
       - postgres
       - nats
       - redis
+      - jaeger
+      - loki
+      - grafana
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
@@ -80,9 +81,20 @@ services:
     ports:
       - "3000:3000"
     extra_hosts: *these_hosts
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
+    depends_on:
+      - loki
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:e
+
 
 networks:
   backend_net:
