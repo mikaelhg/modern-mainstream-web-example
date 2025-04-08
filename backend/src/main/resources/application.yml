@@ -12,6 +12,8 @@ logging.level:
 
 server.port: 8082
 
+server.undertow.accesslog.enable: true
+
 #spring.web.resources.static-locations: 'file:./frontend/dist'
 
 server.error.whitelabel.enabled: true
