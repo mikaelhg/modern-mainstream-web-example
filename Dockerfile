@@ -14,6 +14,6 @@ FROM azul/zulu-openjdk-alpine:24-latest as production
 RUN adduser -D -u 1000 app
 WORKDIR /app
 COPY --from=builder /build/backend/build/libs/app.jar /app/backend/app.jar
-CMD java --show-version -XshowSettings:properties -Djdk.serialFilter=!* -XX:+UseZGC -Xmx64m -Xms64m -jar /app/backend/app.jar
+CMD java --show-version -XshowSettings:properties -Djdk.serialFilter=!* -XX:+UseZGC -Xlog:gc,stats -Xmx128m -Xms128m -jar /app/backend/app.jar
 USER app
 EXPOSE 8082

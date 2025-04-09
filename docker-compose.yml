@@ -30,6 +30,15 @@ services:
       - jaeger
       - loki
       - grafana
+    labels:
+      logging: "promtail"
+      logging_jobname: "containerlogs"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+        tag: "{{.Name}}"
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
@@ -60,7 +69,7 @@ services:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:a
 
   jaeger:
-    image: 'jaegertracing/all-in-one:latest'
+    image: 'jaegertracing/jaeger:latest'
     extra_hosts: *these_hosts
     networks:
       backend_net:
@@ -70,7 +79,9 @@ services:
     image: 'grafana/loki:latest'
     ports:
       - "3100:3100"
-    command: '-config.file=/etc/loki/local-config.yaml'
+    volumes:
+      - ./docker/loki/loki.yaml:/etc/loki/loki.yaml
+    command: '-config.file=/etc/loki/loki.yaml -log.level=warn'
     extra_hosts: *these_hosts
     networks:
       backend_net:
@@ -87,6 +98,7 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_LOG_LEVEL=error
     volumes:
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
     depends_on:
@@ -95,6 +107,19 @@ services:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:e
 
+  promtail:
+    image:  grafana/promtail:latest
+    extra_hosts: *these_hosts
+    volumes:
+      - ./docker/promtail/promtail.yaml:/etc/promtail/docker-config.yaml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: -config.file=/etc/promtail/docker-config.yaml
+    depends_on:
+      - loki
+    networks:
+      backend_net:
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:d
 
 networks:
   backend_net:
