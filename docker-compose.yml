@@ -10,9 +10,8 @@ services:
       SPRING_DATASOURCE_USERNAME: app
       SPRING_DATASOURCE_PASSWORD: app
       SPRING_REDIS_HOST: redis
-      OPENTRACING_JAEGER_ENABLED: "true"
-      OPENTRACING_JAEGER_UDP_SENDER_HOST: jaeger
-      OPENTRACING_JAEGER_UDP_SENDER_PORT: 6831
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_LOGS_EXPORTER: none
       # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
       SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
     extra_hosts: &these_hosts

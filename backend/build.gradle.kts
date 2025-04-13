@@ -20,6 +20,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    create("otelAgent")
+}
+
 dependencies {
     implementation(project(":frontend"))
     implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom"))
@@ -42,6 +46,7 @@ dependencies {
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
+    "otelAgent"("io.opentelemetry.javaagent:opentelemetry-javaagent:2.15.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -62,4 +67,17 @@ kotlin {
 
 tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
     archiveFileName = "app.jar"
+}
+
+tasks.register<Copy>("agent") {
+    group = "Application"
+    description = "Downloads OpenTelemetry agent to the target directory"
+
+    from(configurations["otelAgent"])
+    into("${buildDir}/libs")
+    rename { "opentelemetry-javaagent.jar" }
+
+    doLast {
+        logger.lifecycle("OpenTelemetry agent downloaded to: ${destinationDir}/opentelemetry-javaagent.jar")
+    }
 }
