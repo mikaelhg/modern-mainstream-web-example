@@ -1,31 +1,29 @@
 ## Modern mainstream web application example
 
-Build tools: 
+**Build tools:**
 
-* [Gradle](https://www.gradle.org/) with for the backend,
+* [Gradle](https://www.gradle.org/) with a NPM plugin for the backend build and for
   managing the frontend build, and mushing the frontend and backend together.
 
-* [Yarn](https://yarnpkg.com/)
-  for managing the frontend dependencies, and the frontend static web site build.
+**Virtual machines / programming language runtimes:**
 
-Virtual machines / programming language runtimes:
-
-* [JDK](https://adoptium.net/) LTS with ZGC
+* [JDK](https://adoptium.net/) 24 with ZGC
   for running the backend, as well as executing the build.
 
 * [Node.js](https://nodejs.org/en/) LTS
   for running the frontend build.
 
-Programming languages:
+**Programming languages:**
 
 * [Kotlin](https://kotlinlang.org/)
   for developing the backend. Compiles into JVM class files into a JDK17-runnable JAR.
 
 * JavaScript for the frontend.
 
-Frameworks and libraries:
+**Frameworks and libraries:**
 
 * [Spring Boot](https://projects.spring.io/spring-boot/)
+  and Spring Security
 
 * [Vue.js](https://vuejs.org/)
   with [Vite](https://vitejs.dev/) for developing the frontend.
@@ -34,28 +32,32 @@ Frameworks and libraries:
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
 
-Other resources:
+**Other resources:**
 
 * [CoreUI](https://coreui.io/)
   for a NPM-packaged Bootstrap web interface for administrative user interfaces.
 
-* [Wrap Bootstrap](https://wrapbootstrap.com/) and [Pixelarity](https://pixelarity.com/)
+* [Wrap Bootstrap](https://wrapbootstrap.com/) and [Themeforest](https://themeforest.net/)
   for high-level user interface design products, which allow you to spend your
-  UI budget on features, rather than duplicating standard work.
+  UI budget on features, rather than duplicating standard components and views.
 
 * [Unsplash](https://unsplash.com/) for great photographic visual elements.
 
-Operational tools:
+**Operational tools:**
 
 * [Docker](https://www.docker.com/) and
   [Docker Compose](https://docs.docker.com/compose/)
   for building production/staging-deployable application containers.
   
+* [Dex](https://dexidp.io/)
+  as the OpenID / OAuth2 authentication server, suitable for both 
+  local containers and production deployments.
+
 * [Traefik](https://traefik.io/) or 
   [Caddy](https://caddyserver.com/) as a reverse HTTP/S proxy and
   [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
-* [Grafana Loki](https://grafana.com/oss/loki/)
+* [Grafana Loki](https://grafana.com/oss/loki/) and Promtail
   for collecting log events and errors into a searchable and trackable database.
   
 * [Prometheus](https://prometheus.io/) for collecting quantitative data related both
@@ -90,14 +92,11 @@ for frontend development. It's not quite as good as IDEA, but it will do in a pi
 
 ### How to deploy locally, with `docker-compose`
 
-```bash
-docker compose up
-```
+    docker compose up
 
 After you've started the application, you can browse these links:
 
-[Application](http://[fd0d:a9c5:724a:9d35:a:a:a:1]/),
-[NATS](http://[fd0d:a9c5:724a:9d35:a:a:a:a]:8222/),
+[Application](http://localhost:8080/),
 [Jaeger](http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search),
 [Grafana](http://[fd0d:a9c5:724a:9d35:a:a:a:e]:3000/).
 
@@ -117,10 +116,28 @@ tools, if they don't want to use continuous deployment into production.
 
 ### How to operate in production
 
-The most important aspect of production operation is automating the collection and presentation
-of the kind of data you'll need to resolve production issues. To that end, there are several
-relevant data collection services attached to the project.
- 
-Learn how to use those, and how to interpret data. As the business processes managed in the 
-application take shape, add missing debug data into the logged context, using the tools provided
-by the data collection platforms.
+At minimum, your operational infrastructure should enable teams to systematically 
+**observe**, **diagnose**, and **adapt** to issues *before* they escalate into outages 
+or user-facing failures.  
+
+**Instrument comprehensively:**  
+- Capture structured logs, key metrics, and transaction traces in a format 
+  that contextualizes events (e.g., user IDs, session identifiers, request timelines).  
+- Aggregate this data into searchable, centralized systems that retain history long 
+  enough to investigate recurring patterns.  
+
+**Automate anomaly detection:**  
+- Define thresholds and heuristics for critical workflows (e.g., API latency spikes, 
+  error rate surges, resource exhaustion).  
+- Trigger alerts only when deviations correlate with user impact, to avoid alert fatigue.  
+
+**Treat observability as iterative:**  
+- As your application’s logic grows, audit your instrumentation gaps. 
+  For example: Do complex multi-service workflows leave breadcrumbs? 
+  Can you reconstruct a user’s journey from login to error?  
+- Prioritize adding context to logs/metrics that repeatedly lack actionable details 
+  during post-mortems.  
+
+Successful operations depend less on specific tools and more on cultivating a 
+**production-first mindset** – assume failures *will* occur, and ensure your team can
+efficiently gather evidence to explain why.
