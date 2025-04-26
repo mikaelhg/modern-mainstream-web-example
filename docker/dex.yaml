@@ -1,29 +1,33 @@
-logger:
-  level: debug
-  format: text
-issuer: "http://[fd0d:a9c5:724a:9d35:a:a:a:f]:5556/dex"
+issuer: "http://localhost:5556/dex"
+
 web:
-  http: "[fd0d:a9c5:724a:9d35:a:a:a:f]:5556"
+  http: "[::]:5556"
+
 storage:
   type: sqlite3
   config:
     file: /var/dex/dex.db
+
 staticClients:
   - id: modern
-    redirectURIs:
-      - 'http://[fd0d:a9c5:724a:9d35:a:a:a:1]:8080/login/oauth2/callback/dex'
-    name: 'Example App'
     secret: secret
+    name: 'Dex'
+    redirectURIs:
+      - 'http://localhost:8080/login/oauth2/code/dex'
+    grant_types:
+      - authorization_code
+      - client_credentials
+
 enablePasswordDB: true
+
+# bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+# gotta double escape dollar signs in docker compose yaml
+
 staticPasswords:
   - email: "admin@example.com"
-    # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
-    # gotta double escape dollar signs in docker compose yaml
-    hash: '$$2a$$12$$1QX6lUjKaJDqKoQ0GP72su.Ng5Eq3cKMdXjSA63iK.oBU8Bab6K9S'
+    hash: '$2a$12$1QX6lUjKaJDqKoQ0GP72su.Ng5Eq3cKMdXjSA63iK.oBU8Bab6K9S'
     username: "admin"
     userID: "66891ddd-df19-42ce-8002-d2501312a599"
-expiry:
-  deviceRequests: "5m"
-  signingKeys: "6h"
-  idTokens: "24h"
-  authRequests: "24h"
+
+oauth2:
+  skipApprovalScreen: true

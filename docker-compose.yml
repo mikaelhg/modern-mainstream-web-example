@@ -13,10 +13,13 @@ services:
       SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_ID: modern
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_SECRET: secret
-      SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_DEX_ISSUER_URI: "http://[fd0d:a9c5:724a:9d35:a:a:a:f]:5556/dex"
+      #SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_DEX_ISSUER_URI: "http://[fd0d:a9c5:724a:9d35:a:a:a:f]:5556/dex"
+      #SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_REDIRECT_URI: "http://[fd0d:a9c5:724a:9d35:a:a:a:1]:8080/login/oauth2/code/dex"
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
       OTEL_LOGS_EXPORTER: none
       OTEL_METRICS_EXPORTER: none
+    ports:
+      - "8080:8080"
     extra_hosts: &these_hosts
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -124,6 +127,8 @@ services:
     image: 'ghcr.io/dexidp/dex:latest'
     volumes:
       - dex_db:/var/dex
+    ports:
+      - "5556:5556"
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:f

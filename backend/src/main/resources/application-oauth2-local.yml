@@ -1,8 +1,3 @@
-application.name: counter
-
-spring.jackson.serialization:
-    indent-output: true
-
 spring:
   security:
     oauth2:
@@ -21,25 +16,3 @@ spring:
             token-uri: "http://dex:5556/dex/token"
             jwk-set-uri: "http://dex:5556/dex/keys"
             user-info-uri: "http://dex:5556/dex/userinfo"
-
-logging.level:
-  org.springframework: ERROR
-  org.elasticsearch: ERROR
-  org.hibernate: ERROR
-  io.undertow: ERROR
-  org.xnio: ERROR
-  org.apache: ERROR
-  com.zaxxer.hikari: ERROR
-  # org.springframework.security: DEBUG
-
-server.port: 8082
-
-server.undertow.accesslog.enabled: true
-server.undertow.accesslog.dir: /tmp
-server.undertow.accesslog.prefix: accesslog
-
-#spring.web.resources.static-locations: 'file:./frontend/dist'
-
-server.error.whitelabel.enabled: true
-
-opentracing.jaeger.enabled: false
