@@ -3,6 +3,21 @@ application.name: counter
 spring.jackson.serialization:
     indent-output: true
 
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          dex:
+            client-id: modern
+            client-secret: secret
+            scope:
+              - openid
+              - email
+        provider:
+          dex:
+            issuer-uri: "http://[fd0d:a9c5:724a:9d35:a:a:a:f]:5556/dex"
+
 logging.level:
   org.springframework: ERROR
   org.elasticsearch: ERROR

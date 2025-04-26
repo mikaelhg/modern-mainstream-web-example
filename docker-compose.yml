@@ -5,15 +5,18 @@ services:
     image: 'mikael.io/modern:latest'
     hostname: app
     environment:
-      SERVER_PORT: 80
+      SERVER_PORT: 8080
       SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgres/app'
       SPRING_DATASOURCE_USERNAME: app
       SPRING_DATASOURCE_PASSWORD: app
       SPRING_REDIS_HOST: redis
+      SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_ID: modern
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_SECRET: secret
+      SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_DEX_ISSUER_URI: "http://[fd0d:a9c5:724a:9d35:a:a:a:f]:5556/dex"
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
       OTEL_LOGS_EXPORTER: none
-      # OPENTRACING_JAEGER_HTTP_SENDER_URL: 'http://jaeger/api/traces'
-      SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
+      OTEL_METRICS_EXPORTER: none
     extra_hosts: &these_hosts
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -22,13 +25,14 @@ services:
       - 'loki:fd0d:a9c5:724a:9d35:a:a:a:c'
       - 'promtail:fd0d:a9c5:724a:9d35:a:a:a:d'
       - 'grafana:fd0d:a9c5:724a:9d35:a:a:a:e'
+      - 'dex:fd0d:a9c5:724a:9d35:a:a:a:f'
     depends_on:
       - postgres
-      - nats
       - redis
       - jaeger
       - loki
       - grafana
+      - dex
     labels:
       logging: "promtail"
       logging_jobname: "containerlogs"
@@ -60,13 +64,6 @@ services:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:9
 
-  nats:
-    image: 'nats:2-alpine'
-    extra_hosts: *these_hosts
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:a
-
   jaeger:
     image: 'jaegertracing/jaeger:latest'
     extra_hosts: *these_hosts
@@ -78,13 +75,14 @@ services:
     image: 'grafana/loki:latest'
     ports:
       - "3100:3100"
-    volumes:
-      - ./docker/loki/loki.yaml:/etc/loki/loki.yaml
     command: '-config.file=/etc/loki/loki.yaml -log.level=warn'
     extra_hosts: *these_hosts
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:c
+    configs:
+      - source: loki_conf
+        target: /etc/loki/loki.yaml
 
   grafana:
     image: 'grafana/grafana-oss:latest'
@@ -110,7 +108,6 @@ services:
     image:  grafana/promtail:latest
     extra_hosts: *these_hosts
     volumes:
-      - ./docker/promtail/promtail.yaml:/etc/promtail/docker-config.yaml
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock
     command: -config.file=/etc/promtail/docker-config.yaml
@@ -119,6 +116,20 @@ services:
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:d
+    configs:
+      - source: promtail_conf
+        target: /etc/promtail/docker-config.yaml
+
+  dex:
+    image: 'ghcr.io/dexidp/dex:latest'
+    volumes:
+      - dex_db:/var/dex
+    networks:
+      backend_net:
+        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:f
+    configs:
+      - source: dex_conf
+        target: /etc/dex/config.docker.yaml
 
 networks:
   backend_net:
@@ -128,3 +139,14 @@ networks:
       driver: default
       config:
         - subnet: 'fd0d:a9c5:724a:9d35:0:0:0:0/64'
+
+volumes:
+  dex_db:
+
+configs:
+  dex_conf:
+    file: ./docker/dex.yaml
+  promtail_conf:
+    file: ./docker/promtail/promtail.yaml
+  loki_conf:
+    file: ./docker/loki/loki.yaml

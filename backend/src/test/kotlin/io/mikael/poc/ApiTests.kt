@@ -9,9 +9,12 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
-@SpringBootTest(properties = [
-    "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration"
-])
+@SpringBootTest(properties = ["""
+    spring.autoconfigure.exclude=\
+    org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\
+    org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\
+    org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+"""])
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class ApiTests {

@@ -1,7 +1,7 @@
 ${application.name} ${application.version}
 Spring Boot ${spring-boot.version}
 
-  App:     http://[fd0d:a9c5:724a:9d35:a:a:a:1]/
+  App:     http://[fd0d:a9c5:724a:9d35:a:a:a:1]:8080/
   NATS:    http://[fd0d:a9c5:724a:9d35:a:a:a:a]:8222/
   Jaeger:  http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search
   Grafana: http://[fd0d:a9c5:724a:9d35:a:a:a:e]:3000/
