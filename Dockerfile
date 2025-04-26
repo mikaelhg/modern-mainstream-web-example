@@ -15,7 +15,7 @@ RUN adduser -D -u 1000 app
 WORKDIR /app
 COPY --from=builder /build/backend/build/libs/*.jar /app/
 ENV JAVA_TOOL_OPTIONS="-javaagent:/app/opentelemetry-javaagent.jar"
-CMD java --show-version -XshowSettings:properties -Djdk.serialFilter=!* \
-      -XX:+UseZGC -Xlog:gc+stats -Xmx128m -Xms128m -jar /app/app.jar
+CMD ["java", "--show-version", "-XshowSettings:properties", "-Djdk.serialFilter=!*", \
+      "-XX:+UseZGC", "-Xlog:gc+stats", "-Xmx128m", "-Xms128m", "-jar", "/app/app.jar"]
 USER app
 EXPOSE 8082
