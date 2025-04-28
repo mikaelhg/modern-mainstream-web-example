@@ -34,7 +34,7 @@ dependencies {
     }
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     constraints {
-        implementation("org.jboss.threads:jboss-threads:3.8.0.Final") {
+        implementation("org.jboss.threads:jboss-threads:3.9.0") {
             because("Java 24 support")
         }
     }
