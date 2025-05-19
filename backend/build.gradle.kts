@@ -2,7 +2,7 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     id("org.springframework.boot") version "3.4.4"
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.1.21"
     kotlin("plugin.spring") version "2.1.20"
     kotlin("plugin.jpa") version "2.1.20"
 }
