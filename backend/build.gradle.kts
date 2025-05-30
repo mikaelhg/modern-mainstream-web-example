@@ -1,10 +1,10 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "3.4.4"
-    kotlin("jvm") version "2.1.20"
-    kotlin("plugin.spring") version "2.1.20"
-    kotlin("plugin.jpa") version "2.1.20"
+    id("org.springframework.boot") version "3.5.0"
+    kotlin("jvm") version "2.1.21"
+    kotlin("plugin.spring") version "2.1.21"
+    kotlin("plugin.jpa") version "2.1.21"
 }
 
 group = "io.mikael.poc"
@@ -23,6 +23,8 @@ repositories {
 configurations {
     create("otelAgent")
 }
+
+val mockitoAgent: Configuration by configurations.creating
 
 dependencies {
     implementation(project(":frontend"))
@@ -51,10 +53,15 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    mockitoAgent("org.mockito:mockito-core:5.17.0") {
+        isTransitive = false
+    }
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    jvmArgs("-javaagent:${mockitoAgent.asPath}")
+    jvmArgs("-Xshare:off")
     testLogging {
         events("passed", "skipped", "failed")
     }
@@ -76,6 +83,7 @@ tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
 }
 
 tasks.register<Copy>("agent") {
+    val buildDir = project.layout.buildDirectory.get().asFile.absolutePath
     group = "Application"
     description = "Downloads OpenTelemetry agent to the target directory"
 

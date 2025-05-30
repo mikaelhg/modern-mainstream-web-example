@@ -13,7 +13,8 @@ import org.springframework.test.web.servlet.get
     spring.autoconfigure.exclude=\
     org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\
     org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\
-    org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+    org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,\
+    org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientWebSecurityAutoConfiguration
 """])
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
