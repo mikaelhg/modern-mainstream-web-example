@@ -36,7 +36,7 @@ dependencies {
     }
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     constraints {
-        implementation("org.jboss.threads:jboss-threads:3.8.0.Final") {
+        implementation("org.jboss.threads:jboss-threads:3.9.1") {
             because("Java 24 support")
         }
     }
@@ -49,7 +49,7 @@ dependencies {
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
-    "otelAgent"("io.opentelemetry.javaagent:opentelemetry-javaagent:2.15.0")
+    "otelAgent"("io.opentelemetry.javaagent:opentelemetry-javaagent:2.16.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

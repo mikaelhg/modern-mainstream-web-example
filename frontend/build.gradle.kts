@@ -6,7 +6,8 @@ plugins {
 }
 
 node {
-    version = "22.15.1"
+    version = "22.16.0"
+    npmVersion = "11.4.1"
     download = true
 }
 
