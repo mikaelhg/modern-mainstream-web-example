@@ -20,10 +20,7 @@ repositories {
     mavenCentral()
 }
 
-configurations {
-    create("otelAgent")
-}
-
+val otelAgent: Configuration by configurations.creating
 val mockitoAgent: Configuration by configurations.creating
 
 dependencies {
@@ -31,6 +28,8 @@ dependencies {
     implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude("org.springframework.boot", "spring-boot-starter-tomcat")
     }
@@ -49,7 +48,7 @@ dependencies {
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
-    "otelAgent"("io.opentelemetry.javaagent:opentelemetry-javaagent:2.16.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.16.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -87,7 +86,7 @@ tasks.register<Copy>("agent") {
     group = "Application"
     description = "Downloads OpenTelemetry agent to the target directory"
 
-    from(configurations["otelAgent"])
+    from(otelAgent)
     into("${buildDir}/libs")
     rename { "opentelemetry-javaagent.jar" }
 
