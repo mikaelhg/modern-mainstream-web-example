@@ -16,6 +16,7 @@ WORKDIR /app
 COPY --from=builder /build/backend/build/libs/*.jar /app/
 ENV JAVA_TOOL_OPTIONS="-javaagent:/app/opentelemetry-javaagent.jar"
 CMD ["java", "--show-version", "-XshowSettings:properties", "-Djdk.serialFilter=!*", \
+      "--sun-misc-unsafe-memory-access=allow", "-Xshare:off", \
       "-XX:+UseZGC", "-Xlog:gc+stats", "-Xmx128m", "-Xms128m", "-jar", "/app/app.jar"]
 USER app
 EXPOSE 8082

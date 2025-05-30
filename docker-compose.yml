@@ -19,7 +19,7 @@ services:
       OTEL_LOGS_EXPORTER: none
       OTEL_METRICS_EXPORTER: none
     ports:
-      - "8080:8080"
+      - "20080:8080"
     extra_hosts: &these_hosts
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
@@ -45,6 +45,13 @@ services:
         max-size: "1m"
         max-file: "1"
         tag: "{{.Name}}"
+    develop:
+      watch:
+        - action: rebuild
+          path: ./
+          ignore:
+            - ./.git
+            - ./frontend/node_modules
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
@@ -56,6 +63,8 @@ services:
       POSTGRES_PASSWORD: app
       POSTGRES_DB: app
     extra_hosts: *these_hosts
+    ports:
+      - "25432:5432"
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:8
@@ -70,6 +79,8 @@ services:
   jaeger:
     image: 'jaegertracing/jaeger:latest'
     extra_hosts: *these_hosts
+    ports:
+      - "26668:16686"
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:b
@@ -90,7 +101,7 @@ services:
   grafana:
     image: 'grafana/grafana-oss:latest'
     ports:
-      - "3000:3000"
+      - "23000:3000"
     extra_hosts: *these_hosts
     environment:
       - GF_SECURITY_ADMIN_USER=admin
@@ -128,7 +139,7 @@ services:
     volumes:
       - dex_db:/var/dex
     ports:
-      - "5556:5556"
+      - "25556:5556"
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:f

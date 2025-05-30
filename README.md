@@ -96,9 +96,9 @@ for frontend development. It's not quite as good as IDEA, but it will do in a pi
 
 After you've started the application, you can browse these links:
 
-[Application](http://localhost:8080/),
-[Jaeger](http://[fd0d:a9c5:724a:9d35:a:a:a:b]:16686/search),
-[Grafana](http://[fd0d:a9c5:724a:9d35:a:a:a:e]:3000/).
+[Application](http://localhost:20080/),
+[Jaeger](http://localhost:26686/search),
+[Grafana](http://localhost:23000/).
 
 ### How to deploy into staging
 
@@ -116,7 +116,7 @@ tools, if they don't want to use continuous deployment into production.
 
 ### How to operate in production
 
-At minimum, your operational infrastructure should enable teams to systematically 
+Your operational infrastructure should enable teams to systematically 
 **observe**, **diagnose**, and **adapt** to issues *before* they escalate into outages 
 or user-facing failures.  
 

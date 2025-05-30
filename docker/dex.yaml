@@ -13,7 +13,7 @@ staticClients:
     secret: secret
     name: 'Dex'
     redirectURIs:
-      - 'http://localhost:8080/login/oauth2/code/dex'
+      - 'http://localhost:20080/login/oauth2/code/dex'
     grant_types:
       - authorization_code
       - client_credentials
