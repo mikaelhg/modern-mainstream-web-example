@@ -3,6 +3,11 @@ application.name: counter
 spring.jackson.serialization:
     indent-output: true
 
+server.servlet.session.cookie:
+  http-only: true
+  secure: true
+  same-site: strict
+
 spring:
   security:
     oauth2:
