@@ -25,8 +25,8 @@
 * [Spring Boot](https://projects.spring.io/spring-boot/)
   and Spring Security
 
-* [Vue.js](https://vuejs.org/)
-  with [Vite](https://vitejs.dev/) for developing the frontend.
+* [React.js](https://react.dev/)
+  with [Vite](https://vite.dev/) for developing the frontend.
   
 * [Bootstrap](https://getbootstrap.com/)
   for presenting the combination of web content and visual user interface,
