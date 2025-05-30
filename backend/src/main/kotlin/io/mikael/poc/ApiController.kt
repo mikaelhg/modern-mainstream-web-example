@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api")
-class ApiController {
-
-    @field:Volatile
-    var i = 1
+class ApiController(val counterService: CounterService) {
 
     @GetMapping(path = ["counter"], produces = [APPLICATION_JSON_VALUE])
-    fun counter() = mapOf("counter" to i++)
+    fun counter() = mapOf("counter" to counterService.nextValue())
 
 }

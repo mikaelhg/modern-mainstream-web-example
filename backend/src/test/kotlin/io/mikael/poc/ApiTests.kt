@@ -9,13 +9,14 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
-@SpringBootTest(properties = ["""
+@SpringBootTest(properties = [
+    "spring.datasource.url=jdbc:tc:postgresql:17-alpine:///modern-test",
+    """
     spring.autoconfigure.exclude=\
-    org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\
-    org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\
     org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,\
     org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientWebSecurityAutoConfiguration
-"""])
+    """
+])
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class ApiTests {
