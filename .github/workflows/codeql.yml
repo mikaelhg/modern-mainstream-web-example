@@ -33,7 +33,7 @@ jobs:
       matrix:
         include:
         - language: java-kotlin
-          build-mode: autobuild
+          build-mode: manual
         - language: javascript-typescript
           build-mode: none
 
@@ -53,6 +53,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
+        dependency-caching: true
 
     - name: Build Java/Kotlin project
       if: matrix.language == 'java-kotlin'
