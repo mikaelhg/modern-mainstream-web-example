@@ -52,7 +52,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.testcontainers:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    mockitoAgent("org.mockito:mockito-core:5.17.0") {
+    mockitoAgent("org.mockito:mockito-core:5.18.0") {
         isTransitive = false
     }
 }
