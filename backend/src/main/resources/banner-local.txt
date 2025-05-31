@@ -2,5 +2,5 @@ ${application.name} ${application.version}
 Spring Boot ${spring-boot.version}
 
   App:     http://localhost:20080/
-  Jaeger:  http://localhost:26686/search
+  Jaeger:  http://localhost:26668/search
   Grafana: http://localhost:23000/

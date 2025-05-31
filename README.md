@@ -97,7 +97,7 @@ for frontend development. It's not quite as good as IDEA, but it will do in a pi
 After you've started the application, you can browse these links:
 
 [Application](http://localhost:20080/),
-[Jaeger](http://localhost:26686/search),
+[Jaeger](http://localhost:26668/search),
 [Grafana](http://localhost:23000/).
 
 ### How to deploy into staging
