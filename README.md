@@ -18,14 +18,16 @@
 * [Kotlin](https://kotlinlang.org/)
   for developing the backend. Compiles into JVM class files into a JDK17-runnable JAR.
 
-* JavaScript for the frontend.
+* TypeScript for the frontend.
 
 **Frameworks and libraries:**
 
 * [Spring Boot](https://projects.spring.io/spring-boot/)
   and Spring Security
 
-* [React.js](https://react.dev/)
+* [React.js](https://react.dev/),
+  [Redux](https://react-redux.js.org/), 
+  [Redux Toolkit](https://redux-toolkit.js.org/)
   with [Vite](https://vite.dev/) for developing the frontend.
   
 * [Bootstrap](https://getbootstrap.com/)
