@@ -11,7 +11,7 @@ function App() {
         <nav className="navbar navbar-dark bg-dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <i className="bi bi-globe"></i>
+              <i className="bi bi-globe"></i> &nbsp;
               Example
             </a>
           </div>

@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { counterApi } from '../services/counter';
 
 function HelloWorld({ msg }) {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    const apiCall = () => {
-      fetch('/api/counter')
-        .then((response) => response.json())
-        .then((data) => setCount(data.counter));
-    };
-    apiCall();
-    const interval = setInterval(apiCall, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const { data, error, isLoading, isFetching, refetch } =
+    counterApi.useGetCountQuery(undefined, {pollingInterval: 1000})
+
+  if (isLoading) return <div>Loading...</div>
+  if (!data) return <div>Missing data!</div>
 
   return (
     <section className="py-5 text-center container">
@@ -20,7 +16,7 @@ function HelloWorld({ msg }) {
         <div className="col-lg-6 col-md-8 mx-auto">
           <h1 className="fw-light">{msg}</h1>
           <p className="lead text-muted">
-            The count is: {count}.
+            The count is: {data.counter}.
           </p>
         </div>
       </div>
