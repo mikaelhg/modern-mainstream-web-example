@@ -16,7 +16,7 @@
 **Programming languages:**
 
 * [Kotlin](https://kotlinlang.org/)
-  for developing the backend. Compiles into JVM class files into a JDK17-runnable JAR.
+  for developing the backend. Compiles into JVM class files and a runnable JAR.
 
 * TypeScript for the frontend.
 
@@ -30,7 +30,8 @@
   [Redux Toolkit](https://redux-toolkit.js.org/)
   with [Vite](https://vite.dev/) for developing the frontend.
   
-* [Bootstrap](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/) or
+  [TailwindCSS](https://tailwindcss.com/)
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
 
@@ -51,7 +52,8 @@
   [Docker Compose](https://docs.docker.com/compose/)
   for building production/staging-deployable application containers.
   
-* [Dex](https://dexidp.io/)
+* [Dex](https://dexidp.io/) or 
+  [Authelia](https://www.authelia.com/)
   as the OpenID / OAuth2 authentication server, suitable for both 
   local containers and production deployments.
 
@@ -59,7 +61,9 @@
   [Caddy](https://caddyserver.com/) as a reverse HTTP/S proxy and
   [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
-* [Grafana Loki](https://grafana.com/oss/loki/) and Promtail
+* [Grafana Loki](https://github.com/grafana/loki), 
+  [Grafana Alloy](https://github.com/grafana/alloy) and
+  [Vector](https://vector.dev/)
   for collecting log events and errors into a searchable and trackable database.
   
 * [Prometheus](https://prometheus.io/) for collecting quantitative data related both
@@ -92,7 +96,7 @@ If you genuinely can't afford the commercial version of IDEA, get the free commu
 version of IDEA for backend development, and use [VS Code](https://code.visualstudio.com/)
 for frontend development. It's not quite as good as IDEA, but it will do in a pinch.
 
-### How to deploy locally, with `docker-compose`
+### How to deploy locally, with `docker compose`
 
     docker compose up
 
