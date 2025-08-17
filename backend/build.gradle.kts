@@ -34,11 +34,6 @@ dependencies {
         exclude("org.springframework.boot", "spring-boot-starter-tomcat")
     }
     implementation("org.springframework.boot:spring-boot-starter-undertow")
-    constraints {
-        implementation("org.jboss.threads:jboss-threads:3.9.1") {
-            because("Java 24 support")
-        }
-    }
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -47,12 +42,12 @@ dependencies {
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
     runtimeOnly("org.postgresql:postgresql")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.16.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.19.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.testcontainers:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    mockitoAgent("org.mockito:mockito-core:5.18.0") {
+    mockitoAgent("org.mockito:mockito-core:5.19.0") {
         isTransitive = false
     }
 }
