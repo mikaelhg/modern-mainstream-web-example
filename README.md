@@ -1,5 +1,10 @@
 ## Modern mainstream web application example
 
+**Dev tools:**
+
+* [mise-en-place](https://mise.jdx.dev/)
+  for installing node, pnpm, the JDK, various command line tools.
+
 **Build tools:**
 
 * [Gradle](https://www.gradle.org/) with a NPM plugin for the backend build and for

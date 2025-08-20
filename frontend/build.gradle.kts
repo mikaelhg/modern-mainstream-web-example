@@ -1,4 +1,5 @@
 import com.github.gradle.node.npm.task.NpxTask
+import com.github.gradle.node.pnpm.task.PnpmTask
 
 plugins {
     java
@@ -8,6 +9,7 @@ plugins {
 node {
     version = "22.18.0"
     npmVersion = "11.5.2"
+    pnpmVersion = "10.14.0"
     download = true
 }
 

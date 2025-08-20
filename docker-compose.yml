@@ -2,7 +2,7 @@ services:
 
   app:
     build: .
-    image: 'mikael.io/modern:latest'
+    image: 'code.mikael.io/mikaelhg/mmwe:latest'
     hostname: app
     environment:
       SERVER_PORT: 8080
@@ -23,7 +23,6 @@ services:
     extra_hosts: &these_hosts
       - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
       - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
-      - 'nats:fd0d:a9c5:724a:9d35:a:a:a:a'
       - 'jaeger:fd0d:a9c5:724a:9d35:a:a:a:b'
       - 'loki:fd0d:a9c5:724a:9d35:a:a:a:c'
       - 'promtail:fd0d:a9c5:724a:9d35:a:a:a:d'

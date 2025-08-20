@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { counterApi } from './services/counter';
+import { counterApi } from './services/counter'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
