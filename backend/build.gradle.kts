@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "3.5.4"
+    id("org.springframework.boot") version "4.0.0-M2"
     kotlin("jvm") version "2.2.10"
     kotlin("plugin.spring") version "2.2.10"
     kotlin("plugin.jpa") version "2.2.10"
@@ -28,12 +28,9 @@ dependencies {
     implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-    implementation("org.flywaydb:flyway-core")
+    implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.flywaydb:flyway-database-postgresql")
-    implementation("org.springframework.boot:spring-boot-starter-web") {
-        exclude("org.springframework.boot", "spring-boot-starter-tomcat")
-    }
-    implementation("org.springframework.boot:spring-boot-starter-undertow")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

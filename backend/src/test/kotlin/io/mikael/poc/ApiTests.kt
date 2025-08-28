@@ -13,8 +13,8 @@ import org.springframework.test.web.servlet.get
     "spring.datasource.url=jdbc:tc:postgresql:17-alpine:///modern-test",
     """
     spring.autoconfigure.exclude=\
-    org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,\
-    org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientWebSecurityAutoConfiguration
+    org.springframework.boot.security.autoconfigure.servlet.SecurityAutoConfiguration,\
+    org.springframework.boot.security.oauth2.client.autoconfigure.servlet.OAuth2ClientWebSecurityAutoConfiguration
     """
 ])
 @AutoConfigureMockMvc
