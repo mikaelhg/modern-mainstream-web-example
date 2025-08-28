@@ -48,7 +48,7 @@ class SecurityConfig {
                     policyDirectives =
                         "default-src 'self'; " +
                                 "script-src 'self'; " +
-                                "style-src 'self' 'unsafe-inline'; " + // Review 'unsafe-inline'
+                                "style-src 'self'; " +
                                 "img-src 'self' data:; " +
                                 "font-src 'self'; " +
                                 "object-src 'none'; " +
@@ -61,15 +61,6 @@ class SecurityConfig {
                 // X-Content-Type-Options: Prevent MIME-sniffing
                 contentTypeOptions { }
 
-                // Strict-Transport-Security (HSTS): Enforce HTTPS
-                /*
-                httpStrictTransportSecurity {
-                    includeSubDomains = true
-                    maxAgeInSeconds = 31536000 // 1 year
-                    // preload = true // Consider after careful testing
-                }
-                 */
-
                 // Cross-Origin-Opener-Policy (COOP)
                 crossOriginOpenerPolicy { policy = SAME_ORIGIN }
 
@@ -78,8 +69,6 @@ class SecurityConfig {
 
                 // Cross-Origin-Resource-Policy (CORP)
                 crossOriginResourcePolicy { policy = CORP_SAME_ORIGIN }
-
-                // Clear-Site-Data: Usually not set globally (omitted here)
             }
         }
         return http.build()
