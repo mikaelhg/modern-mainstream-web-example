@@ -39,12 +39,6 @@ logging.level:
 
 server.port: 8082
 
-server.undertow.accesslog.enabled: true
-server.undertow.accesslog.dir: /tmp
-server.undertow.accesslog.prefix: accesslog
-
 #spring.web.resources.static-locations: 'file:./frontend/dist'
 
 server.error.whitelabel.enabled: true
-
-opentracing.jaeger.enabled: false

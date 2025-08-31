@@ -1,4 +1,17 @@
+server.servlet.session.cookie:
+  http-only: false
+  secure: false
+  same-site: lax
+
 spring:
+  datasource:
+    url: jdbc:postgresql://postgres/app
+    username: app
+    password: app
+  redis:
+    host: redis
+  banner:
+    location: classpath:/banner-local.txt
   security:
     oauth2:
       client:
@@ -7,12 +20,12 @@ spring:
             client-id: modern
             client-secret: secret
             scope: openid, email, profile
-            redirect-uri: "http://localhost:8080/login/oauth2/code/dex"
+            redirect-uri: "http://localhost:20080/login/oauth2/code/dex"
             authorization-grant-type: authorization_code
         provider:
           dex:
             user-name-attribute: email
-            authorization-uri: "http://localhost:5556/dex/auth"
+            authorization-uri: "http://localhost:25556/dex/auth"
             token-uri: "http://dex:5556/dex/token"
             jwk-set-uri: "http://dex:5556/dex/keys"
             user-info-uri: "http://dex:5556/dex/userinfo"

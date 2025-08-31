@@ -6,15 +6,7 @@ services:
     hostname: app
     environment:
       SERVER_PORT: 8080
-      SERVER_SERVLET_SESSION_COOKIE_SECURE: false
-      SERVER_SERVLET_SESSION_COOKIE_SAME_SITE: lax
-      SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgres/app'
-      SPRING_DATASOURCE_USERNAME: app
-      SPRING_DATASOURCE_PASSWORD: app
-      SPRING_REDIS_HOST: redis
-      SPRING_BANNER_LOCATION: 'classpath:/banner-local.txt'
-      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_ID: modern
-      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_DEX_CLIENT_SECRET: secret
+      SPRING_PROFILES_ACTIVE: oauth2-local
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
       OTEL_LOGS_EXPORTER: none
       OTEL_METRICS_EXPORTER: none
@@ -44,13 +36,6 @@ services:
         max-size: "1m"
         max-file: "1"
         tag: "{{.Name}}"
-    develop:
-      watch:
-        - action: rebuild
-          path: ./
-          ignore:
-            - ./.git
-            - ./frontend/node_modules
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
@@ -64,6 +49,12 @@ services:
     extra_hosts: *these_hosts
     ports:
       - "25432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d app"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 1s
     networks:
       backend_net:
         ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:8

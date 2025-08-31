@@ -7,6 +7,7 @@ COPY --chown=app:app . /build
 RUN chown app:app /build
 USER app
 RUN mkdir /home/app/.gradle
+ENV GRADLE_USER_HOME=/home/app/.gradle
 RUN --mount=type=cache,id=modern-gradle,uid=1000,gid=1000,target=/home/app/.gradle \
       ./gradlew --no-daemon --no-configuration-cache clean build agent -x test
 
