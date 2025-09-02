@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@coreui/coreui':
-        specifier: ^5.4.2
-        version: 5.4.2(@popperjs/core@2.11.8)
+        specifier: ^5.4.3
+        version: 5.4.3(@popperjs/core@2.11.8)
       '@coreui/react':
         specifier: ^5.7.1
         version: 5.7.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -45,8 +45,8 @@ importers:
 
 packages:
 
-  '@coreui/coreui@5.4.2':
-    resolution: {integrity: sha512-dWkPh1Tl187Nk3/bDazaSE8q7o+5aU9uT2MSsojYEGcZhdcePJtTrerdumJuSa69+IAUQGXLwnsqo7LVp83Mig==}
+  '@coreui/coreui@5.4.3':
+    resolution: {integrity: sha512-Tj+3LOcr4Qf2fGL/xDull+Q0d6+t3c/4HtxDtb+j964YOJjki4wqHxam+hQoemqnf2p1tLQ4nmoUjiFwA9FZBg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -591,7 +591,7 @@ packages:
 
 snapshots:
 
-  '@coreui/coreui@5.4.2(@popperjs/core@2.11.8)':
+  '@coreui/coreui@5.4.3(@popperjs/core@2.11.8)':
     dependencies:
       '@popperjs/core': 2.11.8
       html-entities: 2.6.0
@@ -599,7 +599,7 @@ snapshots:
 
   '@coreui/react@5.7.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@coreui/coreui': 5.4.2(@popperjs/core@2.11.8)
+      '@coreui/coreui': 5.4.3(@popperjs/core@2.11.8)
       '@popperjs/core': 2.11.8
       prop-types: 15.8.1
       react: 19.1.1
