@@ -1,6 +1,7 @@
 target/
 .idea/
 .fleet/
+.kotlin/
 *.iml
 /dump.*
 /application-default.yml

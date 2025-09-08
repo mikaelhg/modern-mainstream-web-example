@@ -1,9 +1,12 @@
+name: mmwe
+
 services:
 
   app:
     build: .
     image: 'code.mikael.io/mikaelhg/mmwe:latest'
     hostname: app
+    pull_policy: never
     environment:
       SERVER_PORT: 8080
       SPRING_PROFILES_ACTIVE: oauth2-local
@@ -12,14 +15,6 @@ services:
       OTEL_METRICS_EXPORTER: none
     ports:
       - "20080:8080"
-    extra_hosts: &these_hosts
-      - 'postgres:fd0d:a9c5:724a:9d35:a:a:a:8'
-      - 'redis:fd0d:a9c5:724a:9d35:a:a:a:9'
-      - 'jaeger:fd0d:a9c5:724a:9d35:a:a:a:b'
-      - 'loki:fd0d:a9c5:724a:9d35:a:a:a:c'
-      - 'promtail:fd0d:a9c5:724a:9d35:a:a:a:d'
-      - 'grafana:fd0d:a9c5:724a:9d35:a:a:a:e'
-      - 'dex:fd0d:a9c5:724a:9d35:a:a:a:f'
     depends_on:
       - postgres
       - redis
@@ -36,9 +31,6 @@ services:
         max-size: "1m"
         max-file: "1"
         tag: "{{.Name}}"
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:1
 
   postgres:
     image: 'postgres:17-alpine'
@@ -46,44 +38,29 @@ services:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
       POSTGRES_DB: app
-    extra_hosts: *these_hosts
     ports:
       - "25432:5432"
+    command: postgres -c shared_preload_libraries=pg_stat_statements
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U app -d app"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 1s
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:8
 
   redis:
     image: 'redis:7-alpine'
-    extra_hosts: *these_hosts
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:9
 
   jaeger:
     image: 'jaegertracing/jaeger:latest'
-    extra_hosts: *these_hosts
     ports:
       - "26668:16686"
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:b
 
   loki:
     image: 'grafana/loki:latest'
     ports:
       - "3100:3100"
     command: '-config.file=/etc/loki/loki.yaml -log.level=warn'
-    extra_hosts: *these_hosts
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:c
     configs:
       - source: loki_conf
         target: /etc/loki/loki.yaml
@@ -92,7 +69,6 @@ services:
     image: 'grafana/grafana-oss:latest'
     ports:
       - "23000:3000"
-    extra_hosts: *these_hosts
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -104,22 +80,15 @@ services:
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
     depends_on:
       - loki
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:e
 
   promtail:
     image:  grafana/promtail:latest
-    extra_hosts: *these_hosts
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock
     command: -config.file=/etc/promtail/docker-config.yaml
     depends_on:
       - loki
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:d
     configs:
       - source: promtail_conf
         target: /etc/promtail/docker-config.yaml
@@ -130,21 +99,9 @@ services:
       - dex_db:/var/dex
     ports:
       - "25556:5556"
-    networks:
-      backend_net:
-        ipv6_address: fd0d:a9c5:724a:9d35:a:a:a:f
     configs:
       - source: dex_conf
         target: /etc/dex/config.docker.yaml
-
-networks:
-  backend_net:
-    enable_ipv6: true
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 'fd0d:a9c5:724a:9d35:0:0:0:0/64'
 
 volumes:
   dex_db:
