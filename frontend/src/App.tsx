@@ -1,8 +1,7 @@
-import React from 'react';
-import HelloWorld from './components/HelloWorld';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap/dist/js/bootstrap.esm';
+import HelloWorld from './components/HelloWorld'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap/dist/js/bootstrap.esm'
 
 function App() {
   return (
@@ -11,8 +10,7 @@ function App() {
         <nav className="navbar navbar-dark bg-dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <i className="bi bi-globe"></i> &nbsp;
-              Example
+              <i className="bi bi-globe"></i> &nbsp; Example
             </a>
           </div>
         </nav>
@@ -28,7 +26,7 @@ function App() {
         </div>
       </footer>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

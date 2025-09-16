@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const counterApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
@@ -7,6 +7,6 @@ export const counterApi = createApi({
       query: () => '/counter',
     }),
   }),
-});
+})
 
 export const { useGetCountQuery } = counterApi

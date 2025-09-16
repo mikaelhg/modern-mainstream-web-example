@@ -3,11 +3,11 @@ import { counterApi } from './services/counter'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
-    reducer: {
-        [counterApi.reducerPath]: counterApi.reducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(counterApi.middleware),
+  reducer: {
+    [counterApi.reducerPath]: counterApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(counterApi.middleware),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
