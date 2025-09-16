@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { counterApi } from '../services/counter';
+import { useGetCountQuery } from '../services/counter';
 
 function HelloWorld({ msg }) {
-  const [count, setCount] = useState(0);
-
   const { data, error, isLoading, isFetching, refetch } =
-    counterApi.useGetCountQuery(undefined, {pollingInterval: 1000})
+    useGetCountQuery(undefined, {pollingInterval: 1000})
 
   if (isLoading) return <div>Loading...</div>
   if (!data) return <div>Missing data!</div>
