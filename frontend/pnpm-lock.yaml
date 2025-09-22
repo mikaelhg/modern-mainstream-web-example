@@ -37,8 +37,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(vite@7.1.3)
       npm-check-updates:
-        specifier: ^18.0.2
-        version: 18.0.2
+        specifier: ^18.3.0
+        version: 18.3.0
       vite:
         specifier: ^7.1.3
         version: 7.1.3
@@ -470,8 +470,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  npm-check-updates@18.0.2:
-    resolution: {integrity: sha512-9uVFZUCg5oDOcbzdsrJ4BEvq2gikd23tXuF5mqpl4mxVl051lzB00Xmd7ZVjVWY3XNUF3BQKWlN/qmyD8/bwrA==}
+  npm-check-updates@18.3.0:
+    resolution: {integrity: sha512-Wcm90Af5JuzxwPTtdLl0OH2O1TCeqPTYBch1M3bePmfqylRMiFXXh+uglE4sfMjwdTjw7aIReMwudXeqoYvh2Q==}
     engines: {node: ^18.18.0 || >=20.0.0, npm: '>=8.12.1'}
     hasBin: true
 
@@ -883,7 +883,7 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  npm-check-updates@18.0.2: {}
+  npm-check-updates@18.3.0: {}
 
   object-assign@4.1.1: {}
 
