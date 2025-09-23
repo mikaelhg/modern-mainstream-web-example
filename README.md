@@ -15,7 +15,7 @@
 * [JDK](https://adoptium.net/) 25 with ZGC
   for running the backend, as well as executing the build.
 
-* [Node.js](https://nodejs.org/en/) LTS
+* [Node.js](https://nodejs.org/en/) LTS and [pnpm](https://pnpm.io/)
   for running the frontend build.
 
 **Programming languages:**
@@ -57,8 +57,7 @@
   [Docker Compose](https://docs.docker.com/compose/)
   for building production/staging-deployable application containers.
   
-* [Dex](https://dexidp.io/) or 
-  [Authelia](https://www.authelia.com/)
+* [Dex](https://dexidp.io/)
   as the OpenID / OAuth2 authentication server, suitable for both 
   local containers and production deployments.
 

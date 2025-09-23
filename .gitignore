@@ -1,6 +1,7 @@
 target/
 .idea/
 .fleet/
+.vscode
 .kotlin/
 *.iml
 /dump.*
