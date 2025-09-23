@@ -1,4 +1,3 @@
-import com.github.gradle.node.npm.task.NpxTask
 import com.github.gradle.node.pnpm.task.PnpmTask
 
 plugins {
@@ -7,27 +6,23 @@ plugins {
 }
 
 node {
-    version = "22.18.0"
-    npmVersion = "11.6.0"
-    pnpmVersion = "10.14.0"
+    version = "24.8.0"
+    pnpmVersion = "10.17.1"
     download = true
 }
 
-val buildTask = tasks.register<NpxTask>("buildWebapp") {
-    val buildDir = project.layout.buildDirectory.get().asFile.absolutePath
-    command = "vite"
-    args = listOf("build", "--outDir", "${buildDir}/webapp/static")
-    dependsOn(tasks.npmInstall)
-    outputs.dir("${buildDir}/webapp")
+val buildTask = tasks.register<PnpmTask>("buildWebapp") {
+    pnpmCommand.set(listOf("vite"))
+    args.set(listOf("build", "--outDir", project.layout.buildDirectory.get().asFile.resolve("webapp/static").absolutePath))
+    dependsOn(tasks.named("pnpmInstall"))
+    outputs.dir(project.layout.buildDirectory.dir("webapp"))
 }
 
 sourceSets {
-    java {
-        main {
-            resources {
-                // This makes the processResources task automatically depend on the buildWebapp one
-                srcDir(buildTask)
-            }
+    main {
+        resources {
+            // This makes the processResources task automatically depend on the buildWebapp one
+            srcDir(buildTask)
         }
     }
 }
