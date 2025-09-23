@@ -12,7 +12,7 @@
 
 **Virtual machines / programming language runtimes:**
 
-* [JDK](https://adoptium.net/) 24 with ZGC
+* [JDK](https://adoptium.net/) 25 with ZGC
   for running the backend, as well as executing the build.
 
 * [Node.js](https://nodejs.org/en/) LTS
