@@ -5,7 +5,7 @@ Spring Boot ${spring-boot.version}
   Passwod:  admin
 
   App:     http://localhost:20080/
-  Jaeger:  http://localhost:26668/search
+  Jaeger:  http://localhost:26686/search
   Grafana: http://localhost:23000/
 
 usql 'postgres://app:app@localhost:25432/app'

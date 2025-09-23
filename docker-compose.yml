@@ -54,12 +54,10 @@ services:
   jaeger:
     image: 'jaegertracing/jaeger:latest'
     ports:
-      - "26668:16686"
+      - "26686:16686"
 
   loki:
     image: 'grafana/loki:latest'
-    ports:
-      - "3100:3100"
     command: '-config.file=/etc/loki/loki.yaml -log.level=warn'
     configs:
       - source: loki_conf
