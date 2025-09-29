@@ -22,7 +22,7 @@
     "@reduxjs/toolkit": "^2.9.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
-    "eslint": "^9.35.0",
+    "eslint": "^9.36.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0"
