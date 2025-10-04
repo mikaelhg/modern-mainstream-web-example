@@ -4,7 +4,6 @@ plugins {
     id("org.springframework.boot") version "4.0.0-M3"
     kotlin("jvm") version "2.2.20"
     kotlin("plugin.spring") version "2.2.20"
-    kotlin("plugin.jpa") version "2.2.20"
 }
 
 group = "io.mikael.poc"
@@ -43,7 +42,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.testcontainers:postgresql")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     mockitoAgent("org.mockito:mockito-core:5.20.0") {
         isTransitive = false
     }
@@ -51,7 +49,7 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-    jvmArgs("-javaagent:${mockitoAgent.asPath}")
+    jvmArgs("-javaagent:${mockitoAgent.singleFile.absolutePath}")
     jvmArgs("-Xshare:off")
     testLogging {
         events("passed", "skipped", "failed")
