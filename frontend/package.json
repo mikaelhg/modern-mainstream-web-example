@@ -20,12 +20,12 @@
     "@coreui/coreui": "^5.4.3",
     "@coreui/react": "^5.8.0",
     "@reduxjs/toolkit": "^2.9.0",
-    "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
+    "@tailwindcss/vite": "^4.1.14",
     "eslint": "^9.35.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",

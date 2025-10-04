@@ -1,16 +1,15 @@
+import './App.css';
 import HelloWorld from './components/HelloWorld'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import 'bootstrap/dist/js/bootstrap.esm'
 
 function App() {
   return (
     <>
       <header>
-        <nav className="navbar navbar-dark bg-dark">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <i className="bi bi-globe"></i> &nbsp; Example
+        <nav className="bg-gray-800 text-white">
+          <div className="container mx-auto px-4 py-2">
+            <a className="flex items-center text-xl font-bold" href="#">
+              <span>🌍</span>
+              <span className="ml-2">Example</span>
             </a>
           </div>
         </nav>
@@ -18,15 +17,14 @@ function App() {
       <main>
         <HelloWorld msg="Modern mainstream web application example" />
       </main>
-      <footer className="text-muted py-5">
-        <div className="container">
-          <p className="float-end mb-1">
-            <a href="#">Back to top</a>
+      <footer className="text-gray-500 py-5">
+        <div className="container mx-auto px-4">
+          <p className="float-right mb-1">
+            <a href="#" className="hover:text-gray-700">Back to top</a>
           </p>
         </div>
       </footer>
     </>
   )
 }
-
 export default App
