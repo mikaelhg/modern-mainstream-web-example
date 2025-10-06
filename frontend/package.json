@@ -31,7 +31,7 @@
     "@biomejs/biome": "2.2.4",
     "@vitejs/plugin-react-swc": "^4.0.1",
     "npm-check-updates": "^18.1.1",
-    "vite": "^7.1.5"
+    "vite": "^7.1.9"
   },
   "engines": {
     "node": ">=22.0.0",
