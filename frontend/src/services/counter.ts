@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-// backend/internal/models/counter.go
 export interface CounterResponse {
-  counter: number;
+  counter: number
 }
 
 export const counterApi = createApi({

@@ -1,10 +1,9 @@
 import { useGetCountQuery } from '../services/counter'
 
 function HelloWorld({ msg }: { msg: string }) {
-  const { data, isLoading } = useGetCountQuery(
-    undefined,
-    { pollingInterval: 1000 }
-  )
+  const { data, isLoading } = useGetCountQuery(undefined, {
+    pollingInterval: 1000,
+  })
 
   if (isLoading) return <div className="text-center py-5">Loading...</div>
   if (!data) return <div className="text-center py-5">Missing data!</div>
