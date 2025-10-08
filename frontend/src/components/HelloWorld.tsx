@@ -1,7 +1,7 @@
 import { useGetCountQuery } from '../services/counter'
 
-function HelloWorld({ msg }) {
-  const { data, error, isLoading, isFetching, refetch } = useGetCountQuery(
+function HelloWorld({ msg }: { msg: string }) {
+  const { data, isLoading } = useGetCountQuery(
     undefined,
     { pollingInterval: 1000 }
   )
