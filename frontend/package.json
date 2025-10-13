@@ -25,7 +25,7 @@
     "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.5",
+    "@biomejs/biome": "^2.2.6",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.1",
     "@vitejs/plugin-react-swc": "^4.1.0",
