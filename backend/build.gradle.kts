@@ -38,7 +38,7 @@ dependencies {
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
     runtimeOnly("org.postgresql:postgresql")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.20.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.21.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.testcontainers:postgresql")
