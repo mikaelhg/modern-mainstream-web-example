@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,8 +18,8 @@ export default defineConfig({
         target: 'http://localhost:20080',
         changeOrigin: true,
         secure: false,
-      }
-    }
+      },
+    },
   },
   build: {
     outDir: 'dist',
@@ -28,8 +28,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ['react', 'react-dom', 'react-redux'],
-        }
-      }
-    }
+        },
+      },
+    },
   },
 })

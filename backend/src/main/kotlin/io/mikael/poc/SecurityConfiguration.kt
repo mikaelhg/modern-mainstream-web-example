@@ -15,7 +15,7 @@ import org.springframework.security.web.header.writers.CrossOriginResourcePolicy
 @Profile("!test")
 @Configuration
 @EnableWebSecurity
-class SecurityConfig {
+class SecurityConfiguration {
 
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
