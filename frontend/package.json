@@ -17,7 +17,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.9.2",
+    "@reduxjs/toolkit": "^2.10.1",
     "@tailwindcss/vite": "^4.1.16",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
