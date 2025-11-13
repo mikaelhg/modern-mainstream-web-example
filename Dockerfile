@@ -21,7 +21,6 @@ ENV JDK_JAVA_OPTIONS="--show-version -XshowSettings:properties \
   -XX:+UseZGC -Xlog:gc+stats \
   -Xms128m -Xmx128m \
   -Djdk.serialFilter=!* \
-  --sun-misc-unsafe-memory-access=allow \
   -javaagent:/app/opentelemetry-javaagent.jar"
 CMD ["java", "-jar", "/app/app.jar"]
 USER app
