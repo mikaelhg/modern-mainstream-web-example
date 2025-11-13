@@ -53,7 +53,7 @@ jobs:
 
     - name: Build Java/Kotlin project
       if: matrix.language == 'java-kotlin'
-      run: ./gradlew clean build
+      run: ./gradlew clean build -x test
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
