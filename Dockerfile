@@ -1,6 +1,6 @@
 # The Gradle Node plugin doesn't work on Alpine, that's why we build on Ubuntu.
 
-FROM azul/zulu-openjdk:25-latest AS builder
+FROM azul/zulu-openjdk:21-latest AS builder
 RUN groupadd -r -g 1000 app && useradd -r -u 1000 -g app -s /bin/false -m app
 WORKDIR /build
 COPY --chown=app:app . /build
@@ -17,10 +17,12 @@ FROM azul/zulu-openjdk-alpine:25-jre-latest AS production
 RUN addgroup -g 1000 app && adduser -D -u 1000 -G app app
 WORKDIR /app
 COPY --from=builder /build/backend/build/libs/*.jar /app/
-ENV JAVA_TOOL_OPTIONS="-javaagent:/app/opentelemetry-javaagent.jar"
-CMD ["java", "--show-version", "-XshowSettings:properties", \
-      "-Djdk.serialFilter=!*", \
-      "--sun-misc-unsafe-memory-access=allow", \
-      "-XX:+UseZGC", "-Xlog:gc+stats", "-Xmx128m", "-Xms128m", "-jar", "/app/app.jar"]
+ENV JDK_JAVA_OPTIONS="--show-version -XshowSettings:properties \
+  -XX:+UseZGC -Xlog:gc+stats \
+  -Xms128m -Xmx128m \
+  -Djdk.serialFilter=!* \
+  --sun-misc-unsafe-memory-access=allow \
+  -javaagent:/app/opentelemetry-javaagent.jar"
+CMD ["java", "-jar", "/app/app.jar"]
 USER app
 EXPOSE 8082

@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "4.0.0-RC1"
+    id("org.springframework.boot") version "4.0.0-RC2"
     kotlin("jvm") version "2.2.21"
     kotlin("plugin.spring") version "2.2.21"
 }
@@ -36,7 +36,7 @@ dependencies {
 
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.20.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.21.0")
 
     implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.flywaydb:flyway-database-postgresql")
@@ -63,7 +63,7 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
     jvmArgs("-javaagent:${mockitoAgent.singleFile.absolutePath}")
-    jvmArgs("-Xshare:off")
+    // jvmArgs("-Xshare:off")
     testLogging {
         events("passed", "skipped", "failed")
     }
