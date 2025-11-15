@@ -84,17 +84,16 @@ Frontend and backend developers should first collaborate in building a functiona
 prototype of the minimum viable product, or something equivalent, which allows them to
 specify the most elementary aspects of the interface between the backend and the frontend.
 
-After that, the backend developers should create a mock interface with static data pulled
-from JSON / YAML files provided by the frontend developers, while the frontend developers
-create simple browser-based integration tests for accessing the mock backend.
+After that, the backend developers should create a mock API with static data pulled
+from JSON / YAML files, while the frontend developers create simple browser-based
+integration tests for accessing the mock backend.
 
 After that, the development will begin in earnest, and iteration can start.
 
 The developers should use [IntelliJ IDEA](https://www.jetbrains.com/idea/), which has good
 support for all of the elements used in this example, and can be licensed on a monthly basis.
 
-Developers use Docker on their laptops, which should be relatively beefy, to run the various
-infrastructure components locally.
+Developers use Docker Compose to run a complete environment on their laptops.
 
 If you genuinely can't afford the commercial version of IDEA, get the free community
 version of IDEA for backend development, and use [VS Code](https://code.visualstudio.com/)
@@ -110,44 +109,45 @@ After you've started the application, you can browse these links:
 [Jaeger](http://localhost:26668/search),
 [Grafana](http://localhost:23000/).
 
-### How to deploy into staging
+### How to deploy into dev, test and prod
 
-The ideal way to handle deployment into the shared development environment, or staging,
-is with an automatic deployment from the CI/CD system, which packages the application into
-a Docker container, and executes a Docker Compose command which creates / recreates the
-whole set of containers required for the operation of the service.
+The ideal way to handle deployment into the shared development and test environments,
+is to utilize the release management mechanism of your project hosting platform as a trigger
+to the CI/CD pipeline, which will create a versioned release image, and trigger its deployment
+to dev.
 
-### How to deploy into production
-
-Assuming that the application is run in the cloud, the CI/CD system should push any release
-containers (usually as a response of being tagged as releases in Git) into the cloud service's
-container registry. From there, the operators should use the cloud service's own deployment
-tools, if they don't want to use continuous deployment into production.
+From there, manual deployment actions should trigger the deployment of the release image
+into the tst and prod environments, as appropriate.
 
 ### How to operate in production
 
-Your operational infrastructure should enable teams to systematically 
-**observe**, **diagnose**, and **adapt** to issues *before* they escalate into outages 
-or user-facing failures.  
+The production environment should be set up so that the team can 
+**observe**, **diagnose**, and **adapt** to problems *before* they 
+turn into outages or failures for the user.
 
-**Instrument comprehensively:**  
-- Capture structured logs, key metrics, and transaction traces in a format 
-  that contextualizes events (e.g., user IDs, session identifiers, request timelines).  
-- Aggregate this data into searchable, centralized systems that retain history long 
-  enough to investigate recurring patterns.  
+**Instrument properly:**
 
-**Automate anomaly detection:**  
-- Define thresholds and heuristics for critical workflows (e.g., API latency spikes, 
-  error rate surges, resource exhaustion).  
-- Trigger alerts only when deviations correlate with user impact, to avoid alert fatigue.  
+- Log everything important in a structured format: logs, metrics, and traces. 
+  The data needs context, like user IDs, session IDs, and request timelines.
+- All this data should be collected into one central place where you can search it. 
+  Keep the data for long enough that you can find repeating problems.
 
-**Treat observability as iterative:**  
-- As your application’s logic grows, audit your instrumentation gaps. 
-  For example: Do complex multi-service workflows leave breadcrumbs? 
-  Can you reconstruct a user’s journey from login to error?  
-- Prioritize adding context to logs/metrics that repeatedly lack actionable details 
-  during post-mortems.  
+**Automate alerts, but be sensible:**
 
-Successful operations depend less on specific tools and more on cultivating a 
-**production-first mindset** – assume failures *will* occur, and ensure your team can
-efficiently gather evidence to explain why.
+- Set up some rules and thresholds for the important things, for example, for spikes 
+  in API latency, high error rates, or running out of memory.
+- The system should only send alerts when the problem actually affects users. 
+  Otherwise, people will just start ignoring them.
+
+**Observability is never "done":**
+
+- As the application gets more complicated, you need to check what you are missing 
+  in your monitoring. For example, if a user's action goes through multiple services, 
+  can you actually follow it from start to finish? Can you see the whole journey from 
+  login to the point where they got an error?
+- If you have a post-mortem and find that the logs or metrics were not useful, your first 
+  priority should be to fix them so they are useful the next time.
+
+In the end, the specific tools you use are not the most important thing. 
+What is important is the team's mindset: you have to assume that things **will** fail 
+in production, and make sure the team has what it needs to figure out why, quickly.
