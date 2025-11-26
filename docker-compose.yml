@@ -32,7 +32,7 @@ services:
         tag: "{{.Name}}"
 
   postgres:
-    image: 'postgres:17-alpine'
+    image: 'postgres:18-alpine'
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
@@ -83,7 +83,7 @@ services:
       - loki
 
   promtail:
-    image:  grafana/promtail:latest
+    image: 'grafana/promtail:latest'
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock

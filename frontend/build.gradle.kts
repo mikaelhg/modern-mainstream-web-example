@@ -6,16 +6,19 @@ plugins {
 }
 
 node {
-    version = "24.8.0"
-    pnpmVersion = "10.17.1"
+    version = "24.11.1"
+    pnpmVersion = "10.23.0"
+    npmVersion = "11.6.3"
     download = true
 }
 
 val buildTask = tasks.register<PnpmTask>("buildWebapp") {
+    val webappDir = project.layout.buildDirectory.dir("webapp")
+    val staticDir = webappDir.map { it.dir("static") }
     pnpmCommand.set(listOf("vite"))
-    args.set(listOf("build", "--outDir", project.layout.buildDirectory.get().asFile.resolve("webapp/static").absolutePath))
+    args.set(staticDir.map { dir -> listOf("build", "--outDir", dir.asFile.absolutePath) })
+    outputs.dir(webappDir)
     dependsOn(tasks.named("pnpmInstall"))
-    outputs.dir(project.layout.buildDirectory.dir("webapp"))
 }
 
 sourceSets {
