@@ -19,7 +19,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.0",
     "@tailwindcss/vite": "^4.1.17",
-    "react": "^19.2.0",
+    "react": "^19.2.1",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
     "tailwindcss": "^4.1.17"
