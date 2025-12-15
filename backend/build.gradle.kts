@@ -55,7 +55,7 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers-junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    mockitoAgent("org.mockito:mockito-core:5.20.0") {
+    mockitoAgent("org.mockito:mockito-core:5.21.0") {
         isTransitive = false
     }
 }
