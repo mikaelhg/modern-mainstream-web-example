@@ -1,6 +1,7 @@
 # The Gradle Node plugin doesn't work on Alpine, that's why we build on Ubuntu.
 
 FROM azul/zulu-openjdk:25-latest AS builder
+RUN apt-get -y update && apt-get -y install libatomic1
 RUN groupadd -r -g 1000 app && useradd -r -u 1000 -g app -s /bin/false -m app
 WORKDIR /build
 COPY --chown=app:app . /build
