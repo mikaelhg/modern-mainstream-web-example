@@ -17,21 +17,21 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.11.0",
-    "@tailwindcss/vite": "^4.1.17",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "@reduxjs/toolkit": "^2.11.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-redux": "^9.2.0",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.7",
+    "@biomejs/biome": "^2.3.9",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "@vitest/ui": "3.2.4",
     "typescript": "^5.9.3",
-    "vite": "^7.2.4",
+    "vite": "^7.3.0",
     "vitest": "^3.2.4"
   },
   "engines": {
