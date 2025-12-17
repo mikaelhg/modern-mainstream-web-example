@@ -5,8 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  schedule:
-    - cron: '45 21 * * 0'
+#  schedule:
+#    - cron: '45 21 * * 0'
 
 jobs:
   analyze:
@@ -42,7 +42,7 @@ jobs:
       uses: actions/setup-java@v5
       with:
         distribution: 'zulu'
-        java-version: '21'
+        java-version: '25'
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
