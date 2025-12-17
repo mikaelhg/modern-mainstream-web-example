@@ -1,6 +1,6 @@
 # The Gradle Node plugin doesn't work on Alpine, that's why we build on Ubuntu.
 
-FROM azul/zulu-openjdk:21-latest AS builder
+FROM azul/zulu-openjdk:25-latest AS builder
 RUN groupadd -r -g 1000 app && useradd -r -u 1000 -g app -s /bin/false -m app
 WORKDIR /build
 COPY --chown=app:app . /build
