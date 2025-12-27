@@ -35,21 +35,9 @@
   [Redux Toolkit](https://redux-toolkit.js.org/)
   with [Vite](https://vite.dev/) for developing the frontend.
   
-* [Bootstrap](https://getbootstrap.com/) or
-  [TailwindCSS](https://tailwindcss.com/)
+* [TailwindCSS](https://tailwindcss.com/)
   for presenting the combination of web content and visual user interface,
   and structuring the collaboration between frontend developers and UI/visual designers.
-
-**Other resources:**
-
-* [CoreUI](https://coreui.io/)
-  for a NPM-packaged Bootstrap web interface for administrative user interfaces.
-
-* [Wrap Bootstrap](https://wrapbootstrap.com/) and [Themeforest](https://themeforest.net/)
-  for high-level user interface design products, which allow you to spend your
-  UI budget on features, rather than duplicating standard components and views.
-
-* [Unsplash](https://unsplash.com/) for great photographic visual elements.
 
 **Operational tools:**
 
