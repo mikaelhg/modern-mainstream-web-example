@@ -7,8 +7,8 @@ plugins {
 
 node {
     version = "25.2.1"
-    pnpmVersion = "10.27.0"
-    npmVersion = "11.7.0"
+    pnpmVersion = "10.28.2"
+    npmVersion = "11.9.0"
     download = true
 }
 
