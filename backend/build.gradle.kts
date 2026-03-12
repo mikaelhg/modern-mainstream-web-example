@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "4.0.2"
+    id("org.springframework.boot") version "4.0.3"
     kotlin("jvm") version "2.3.10"
     kotlin("plugin.spring") version "2.3.10"
 }
@@ -55,7 +55,7 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers-junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    mockitoAgent("org.mockito:mockito-core:5.21.0") {
+    mockitoAgent("org.mockito:mockito-core:5.22.0") {
         isTransitive = false
     }
 }
