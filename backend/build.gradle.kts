@@ -36,7 +36,7 @@ dependencies {
 
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.24.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.26.0")
 
     implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.flywaydb:flyway-database-postgresql")
@@ -55,7 +55,7 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers-junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    mockitoAgent("org.mockito:mockito-core:5.22.0") {
+    mockitoAgent("org.mockito:mockito-core:5.23.0") {
         isTransitive = false
     }
 }
