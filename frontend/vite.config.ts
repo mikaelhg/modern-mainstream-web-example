@@ -1,8 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { type UserConfig } from 'vite'
 
-export default defineConfig({
+export default {
   plugins: [react(), tailwindcss()],
   server: {
     host: true,
@@ -19,4 +19,4 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
   },
-})
+} satisfies UserConfig
