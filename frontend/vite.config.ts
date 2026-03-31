@@ -15,8 +15,4 @@ export default {
       },
     },
   },
-  build: {
-    outDir: 'dist',
-    sourcemap: true,
-  },
 } satisfies UserConfig

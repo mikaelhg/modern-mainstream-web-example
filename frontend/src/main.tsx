@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import App from './App'
 import { store } from './store'
 
-const root = ReactDOM.createRoot(document.getElementById('app'))
+const root = ReactDOM.createRoot(document.getElementById('app')!)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
