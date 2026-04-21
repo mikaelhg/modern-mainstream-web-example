@@ -1,0 +1,18 @@
+on: [pull_request]
+
+jobs:
+  cog_check_job:
+    runs-on: ubuntu-latest
+    name: check conventional commit compliance
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          # pick the pr HEAD instead of the merge commit
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Conventional commit check
+        uses: cocogitto/cocogitto-action@9a9fe03b31c47444290c0d7f9b1ee1b44ee13f20 # v4.1.0
+        with:
+          command: check
