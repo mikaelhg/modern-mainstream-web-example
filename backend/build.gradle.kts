@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "4.1.0-M4"
+    id("org.springframework.boot") version "4.1.0-RC1"
     kotlin("jvm") version "2.3.20"
     kotlin("plugin.spring") version "2.3.20"
 }
