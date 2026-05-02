@@ -19,6 +19,9 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+        with:
+          tool_versions: |
+            cocogitto 7.0.0
 
       - name: Cocogitto
         run: |
