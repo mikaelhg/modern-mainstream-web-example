@@ -1,3 +1,4 @@
 [tools]
+cocogitto = "latest"
 java = "zulu-25"
 node = "latest"

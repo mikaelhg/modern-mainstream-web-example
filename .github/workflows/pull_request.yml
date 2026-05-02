@@ -1,18 +1,32 @@
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   cog_check_job:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     name: check conventional commit compliance
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          persist-credentials: false
           fetch-depth: 0
           # pick the pr HEAD instead of the merge commit
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Conventional commit check
-        uses: cocogitto/cocogitto-action@9a9fe03b31c47444290c0d7f9b1ee1b44ee13f20 # v4.1.0
-        with:
-          command: check
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+
+      - name: Cocogitto
+        run: |
+          set -o pipefail
+          MERGE_BASE="$(git merge-base origin/${{ github.base_ref }} HEAD || echo '')"
+
+          if [ -n "$MERGE_BASE" ]; then
+            echo "Checking range: ${MERGE_BASE}..HEAD"
+            cog check "${MERGE_BASE}..HEAD"
+          else
+            echo "No merge base found; checking HEAD only"
+            cog check HEAD
+          fi
