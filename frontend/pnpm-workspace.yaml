@@ -1,3 +1,0 @@
-# Security: Anti-Shai-Hulud
-minimumReleaseAge: 1440 # 24-hour quarantine for new versions
-blockExoticSubdeps: true
