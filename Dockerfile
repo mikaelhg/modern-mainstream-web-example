@@ -14,7 +14,7 @@ RUN --mount=type=cache,uid=1000,gid=1000,target=/home/app/.gradle \
     --mount=type=cache,uid=1000,gid=1000,target=/home/app/.cache/pnpm \
       ./gradlew --no-daemon --no-configuration-cache clean build agent -x test
 
-FROM azul/zulu-openjdk-alpine:25-jre-latest AS production
+FROM azul/zulu-openjdk-alpine:26-jre-headless-latest AS production
 RUN addgroup -g 1000 app && adduser -D -u 1000 -G app app
 WORKDIR /app
 COPY --from=builder /build/backend/build/libs/*.jar /app/
