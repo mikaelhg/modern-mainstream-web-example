@@ -1,6 +1,10 @@
+name: Pull Request
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - 'master'
 
 jobs:
   cog_check_job:
@@ -11,6 +15,7 @@ jobs:
       github.event.pull_request.user.login != 'dependabot[bot]'
 
     steps:
+
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
@@ -19,9 +24,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
-        with:
-          tool_versions: |
-            cocogitto 7.0.0
 
       - name: Cocogitto
         run: |
