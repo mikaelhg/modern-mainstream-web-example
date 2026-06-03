@@ -6,13 +6,14 @@ plugins {
 }
 
 node {
-    version = "24.14.1"
-    pnpmVersion = "11.0.6"
-    npmVersion = "11.9.0"
+    version = "24.16.0"
+    pnpmVersion = "11.5.1"
+    npmVersion = "11.16.0"
     download = true
 }
 
 val buildTask = tasks.register<PnpmTask>("buildWebapp") {
+    description = "build the web app with pnpm"
     val webappDir = project.layout.buildDirectory.dir("webapp")
     val staticDir = webappDir.map { it.dir("static") }
     pnpmCommand.set(listOf("vite"))

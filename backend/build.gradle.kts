@@ -2,8 +2,8 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     id("org.springframework.boot") version "4.1.0-RC1"
-    kotlin("jvm") version "2.3.21"
-    kotlin("plugin.spring") version "2.3.21"
+    kotlin("jvm") version "2.4.0"
+    kotlin("plugin.spring") version "2.4.0"
 }
 
 group = "io.mikael.poc"

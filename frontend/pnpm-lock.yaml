@@ -448,8 +448,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  enhanced-resolve@5.21.3:
-    resolution: {integrity: sha512-QyL119InA+XXEkNLNTPCXPugSvOfhwv0JOlGNzvxs0hZaiHLNvXSpudUWsOlsXGWJh8G6ckCScEkVHfX3kw/2Q==}
+  enhanced-resolve@5.22.1:
+    resolution: {integrity: sha512-6QEuw3zoX1SJQc7b87aBXke/no+mG2bTBgw29gWMQonLmpEkWoCAVkl+M49e48AZlWzxiDzDZzYdp6kobcyLww==}
     engines: {node: '>=10.13.0'}
 
   es-module-lexer@2.1.0:
@@ -938,7 +938,7 @@ snapshots:
   '@tailwindcss/node@4.3.0':
     dependencies:
       '@jridgewell/remapping': 2.3.5
-      enhanced-resolve: 5.21.3
+      enhanced-resolve: 5.22.1
       jiti: 2.7.0
       lightningcss: 1.32.0
       magic-string: 0.30.21
@@ -1094,7 +1094,7 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  enhanced-resolve@5.21.3:
+  enhanced-resolve@5.22.1:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
