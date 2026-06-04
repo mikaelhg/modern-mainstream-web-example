@@ -19,6 +19,10 @@ repositories {
     mavenCentral()
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 val otelAgent: Configuration by configurations.creating
 val mockitoAgent: Configuration by configurations.creating
 
