@@ -3,6 +3,13 @@
    <configuration>
       <verify-metadata>true</verify-metadata>
       <verify-signatures>false</verify-signatures>
+      <trusted-artifacts>
+         <trust file=".*-javadoc[.]jar" regex="true"/>
+         <trust file=".*-sources[.]jar" regex="true"/>
+         <trust file="gradle-.*-src[.]zip" regex="true"/>
+         <trust file="kotlin-.*[.]module" regex="true"/>
+         <trust file="kotlin-.*[.]pom" regex="true"/>
+      </trusted-artifacts>
    </configuration>
    <components>
       <component group="aopalliance" name="aopalliance" version="1.0">
