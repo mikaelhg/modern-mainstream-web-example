@@ -68,6 +68,7 @@ tasks.withType<Test> {
     testLogging {
         events("passed", "skipped", "failed")
     }
+    outputs.upToDateWhen { false }
 }
 
 kotlin {

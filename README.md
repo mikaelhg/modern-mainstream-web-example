@@ -10,6 +10,14 @@
 * [Gradle](https://www.gradle.org/) with a NPM plugin for the backend build and for
   managing the frontend build, and mushing the frontend and backend together.
 
+* Gradle's dependency verification mechanism for SHA pinning dependency JARs.
+
+To update the verification data after upgrading dependencies:
+
+```shell
+./gradlew --write-verification-metadata sha256 build
+```
+
 **Virtual machines / programming language runtimes:**
 
 * [JDK](https://adoptium.net/) 25 LTS with ZGC
