@@ -1,4 +1,4 @@
 [tools]
 cocogitto = "latest"
-java = "zulu-25"
+java = "zulu-26"
 node = "lts"
