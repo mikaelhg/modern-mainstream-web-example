@@ -1,6 +1,6 @@
 import { useGetCountQuery } from '../services/counter'
 
-function HelloWorld({ msg }: { msg: string }) {
+export default function HelloWorld({ msg }: { msg: string }) {
   const { data, isLoading } = useGetCountQuery(undefined, {
     pollingInterval: 1000,
   })
@@ -19,4 +19,3 @@ function HelloWorld({ msg }: { msg: string }) {
     </section>
   )
 }
-export default HelloWorld
