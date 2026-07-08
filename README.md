@@ -61,16 +61,15 @@ To update the verification data after upgrading dependencies:
   [Caddy](https://caddyserver.com/) as a reverse HTTP/S proxy and
   [Let's Encrypt](https://letsencrypt.org/) free SSL certificate automation manager.
 
-* [Grafana Loki](https://github.com/grafana/loki), 
-  [Grafana Alloy](https://github.com/grafana/alloy) and
+* [VictoriaLogs](https://github.com/VictoriaMetrics/VictoriaLogs) and
   [Vector](https://vector.dev/)
   for collecting log events and errors into a searchable and trackable database.
   
-* [Prometheus](https://prometheus.io/) for collecting quantitative data related both
-  to the business logic and the application infrastructure.
+* [VictoriaMetrics](https://github.com/victoriametrics/VictoriaMetrics) 
+  for collecting quantitative data related both to the business logic and the infrastructure.
 
 * [OpenTelemetry](https://opentelemetry.io/) and
-  [Jaeger](https://www.jaegertracing.io/)
+  [VictoriaTraces](https://github.com/VictoriaMetrics/VictoriaTraces)
   for distributed enterprise application tracing, where you need transparency into
   business processes which have been distributed across many separate applications.
 
@@ -107,43 +106,37 @@ After you've started the application, you can browse these links:
 
 ### How to deploy into dev, test and prod
 
-The ideal way to handle deployment into the shared development and test environments,
-is to utilize the release management mechanism of your project hosting platform as a trigger
-to the CI/CD pipeline, which will create a versioned release image, and trigger its deployment
-to dev.
+Have your CI automatically build and deploy from master branch pushes
+to the dev environment.
 
-From there, manual deployment actions should trigger the deployment of the release image
-into the tst and prod environments, as appropriate.
+Manual deploys of packaged images to the test and production environments.
+
+It's a good idea to set up CI automation so that you can kick off temporary
+PR specific environments for testing.
 
 ### How to operate in production
 
-The production environment should be set up so that the team can 
-**observe**, **diagnose**, and **adapt** to problems *before* they 
-turn into outages or failures for the user.
+Set up your production environment so the team can spot, debug, and fix issues before 
+they turn into user-facing outages.
 
 **Instrument properly:**
 
-- Log everything important in a structured format: logs, metrics, and traces. 
-  The data needs context, like user IDs, session IDs, and request timelines.
-- All this data should be collected into one central place where you can search it. 
-  Keep the data for long enough that you can find repeating problems.
+*   Structure your logs, metrics, and traces. Include critical context like user IDs, 
+session IDs, and request timelines.
+*   Collect everything into a single, searchable location and keep the data long 
+enough to spot recurring issues.
 
 **Automate alerts, but be sensible:**
 
-- Set up some rules and thresholds for the important things, for example, for spikes 
-  in API latency, high error rates, or running out of memory.
-- The system should only send alerts when the problem actually affects users. 
-  Otherwise, people will just start ignoring them.
+*   Set up alerts for key metrics like latency spikes, high error rates, and resource limits.
+*   Only page people for issues that actually impact users, or the team will 
+just start ignoring the noise.
 
 **Observability is never "done":**
 
-- As the application gets more complicated, you need to check what you are missing 
-  in your monitoring. For example, if a user's action goes through multiple services, 
-  can you actually follow it from start to finish? Can you see the whole journey from 
-  login to the point where they got an error?
-- If you have a post-mortem and find that the logs or metrics were not useful, your first 
-  priority should be to fix them so they are useful the next time.
+*   Regularly check for gaps in your monitoring as the system grows. You need to be able to 
+trace a user's journey across multiple services from login to error.
+*   After a post-mortem, prioritize fixing any logs or metrics that failed to help you diagnose the issue.
 
-In the end, the specific tools you use are not the most important thing. 
-What is important is the team's mindset: you have to assume that things **will** fail 
-in production, and make sure the team has what it needs to figure out why, quickly.
+Don't worry too much about specific tools. What matters is the mindset: 
+assume things will fail in production, and make sure your team has the visibility to figure out why quickly.
