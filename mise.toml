@@ -2,3 +2,4 @@
 cocogitto = "latest"
 java = "zulu-26"
 node = "lts"
+pnpm = "11"
