@@ -23,8 +23,8 @@ dependencyLocking {
     lockAllConfigurations()
 }
 
-val otelAgent: Configuration by configurations.creating
-val mockitoAgent: Configuration by configurations.creating
+val otelAgent = configurations.create("otelAgent")
+val mockitoAgent = configurations.create("mockitoAgent")
 
 dependencies {
     implementation(project(":frontend"))
