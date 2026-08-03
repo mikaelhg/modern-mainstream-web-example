@@ -6,34 +6,27 @@ on:
     branches:
       - 'master'
 
+permissions: {}
+
 jobs:
-  cog_check_job:
+  build:
     runs-on: ubuntu-latest
-    name: check conventional commit compliance
-    if: |
-      github.event.pull_request.draft == false &&
-      github.event.pull_request.user.login != 'dependabot[bot]'
+    timeout-minutes: 5
+    permissions:
+      contents: read
 
     steps:
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           fetch-depth: 0
           # pick the pr HEAD instead of the merge commit
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        with:
+          distribution: 'zulu'
+          java-version: '26'
 
-      - name: Cocogitto
-        run: |
-          set -o pipefail
-          MERGE_BASE="$(git merge-base origin/${{ github.base_ref }} HEAD || echo '')"
-
-          if [ -n "$MERGE_BASE" ]; then
-            echo "Checking range: ${MERGE_BASE}..HEAD"
-            cog check "${MERGE_BASE}..HEAD"
-          else
-            echo "No merge base found; checking HEAD only"
-            cog check HEAD
-          fi
+      - run: ./gradlew build
