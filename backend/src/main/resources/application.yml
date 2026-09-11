@@ -1,14 +1,9 @@
-application.name: counter
-
-spring.jackson.serialization:
-    indent-output: true
-
-server.servlet.session.cookie:
-  http-only: true
-  secure: true
-  same-site: strict
-
 spring:
+  application:
+    name: counter
+  jackson:
+    serialization:
+      indent-output: true
   threads:
     virtual:
       enabled: true
@@ -31,6 +26,10 @@ spring:
             token-uri: "http://dex:5556/dex/token"
             jwk-set-uri: "http://dex:5556/dex/keys"
             user-info-uri: "http://dex:5556/dex/userinfo"
+  web:
+    error:
+      whitelabel:
+        enabled: true
 
 logging.level:
   org.springframework: ERROR
@@ -43,7 +42,3 @@ logging.level:
   # org.springframework.security: DEBUG
 
 server.port: 8082
-
-#spring.web.resources.static-locations: 'file:./frontend/dist'
-
-server.error.whitelabel.enabled: true
