@@ -39,7 +39,7 @@ dependencies {
 
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.30.0")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.31.1")
 
     implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.flywaydb:flyway-database-postgresql")
