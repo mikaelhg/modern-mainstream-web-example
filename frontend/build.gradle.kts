@@ -6,9 +6,9 @@ plugins {
 }
 
 node {
-    version = "24.16.0"
-    pnpmVersion = "11.10.0"
-    npmVersion = "11.16.0"
+    version = "24.21.0"
+    npmVersion = "12.0.2"
+    pnpmVersion = "12.4.1"
     download = true
 }
 
