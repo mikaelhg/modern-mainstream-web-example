@@ -1,9 +1,9 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id("org.springframework.boot") version "4.1.1"
-    kotlin("jvm") version "2.4.20"
-    kotlin("plugin.spring") version "2.4.20"
+    id("org.springframework.boot") version "4.1.2"
+    kotlin("jvm") version "2.4.21"
+    kotlin("plugin.spring") version "2.4.21"
 }
 
 group = "io.mikael.poc"
@@ -39,7 +39,7 @@ dependencies {
 
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
     runtimeOnly("io.micrometer:micrometer-registry-otlp")
-    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.31.1")
+    otelAgent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.33.1")
 
     implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.flywaydb:flyway-database-postgresql")
