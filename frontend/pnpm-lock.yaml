@@ -141,8 +141,8 @@ importers:
         specifier: ^6.1.1
         version: 6.1.1(vite@8.3.0(jiti@2.7.0))
       '@vitest/ui':
-        specifier: ^5.0.0
-        version: 5.0.0(vitest@5.0.0)
+        specifier: ^5.0.5
+        version: 5.0.5(vitest@5.0.0)
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -151,7 +151,7 @@ importers:
         version: 8.3.0(jiti@2.7.0)
       vitest:
         specifier: ^5.0.0
-        version: 5.0.0(@vitest/ui@5.0.0)(vite@8.3.0(jiti@2.7.0))
+        version: 5.0.0(@vitest/ui@5.0.5)(vite@8.3.0(jiti@2.7.0))
 
 packages:
 
@@ -611,19 +611,19 @@ packages:
       vite:
         optional: true
 
-  '@vitest/pretty-format@5.0.0':
-    resolution: {integrity: sha512-PVRNuB3wpReb4SQEs4zTKM4KWFhQ5pw3spE8naoDJNB5T5aWRzGKHwXcLUllr0WeOTXpB6bSr3CJLo5+7XQSSQ==}
+  '@vitest/pretty-format@5.0.5':
+    resolution: {integrity: sha512-24sSdIlMA9DVPXnYiB9siwU0bTd887Y9jX3+vabztCSsvHwo7ipvJ/a2L3Rljw8+2rK1f5fCj3h5U9I/Jsqgbw==}
 
   '@vitest/spy@5.0.0':
     resolution: {integrity: sha512-uy+luWBAPw9XfthoHi5AkfHUnuPYEESjl0p/r+meoBnU8bxg5GDQ3Ey8MjcJ6sqahkL4PFyrvfMJJBw7LbU06g==}
 
-  '@vitest/ui@5.0.0':
-    resolution: {integrity: sha512-h2FIFwggCY2GxUd2UdQoYNVQkOIqEQLPhNREcl3FUiRsdzQep7NWwYbSmhGEA9nFLPDq5pXzRMcBZQU8Py83sg==}
+  '@vitest/ui@5.0.5':
+    resolution: {integrity: sha512-dCoGUOdgmCaSB2g+WQ/spPCBkytAWdNUkFSXY4z+eYp2d8JEOY8v0uDRaJTG9qf/kTlTVZ4CuYMYMz/f1HS/qQ==}
     peerDependencies:
-      vitest: 5.0.0
+      vitest: 5.0.5
 
-  '@vitest/utils@5.0.0':
-    resolution: {integrity: sha512-dO++xL3vDfvhTAVimfkuQUA3k+JClIF1i1vAkPqpcGAthRmeWnXmHB7YPViPvgCwviX8u7Y5W1u2N//AaQr3fw==}
+  '@vitest/utils@5.0.5':
+    resolution: {integrity: sha512-/rBu7gzLDQI/SC79Tn98b5DwOgaHU/Gt4I9OVeP3YofzNaYtbImRCOJQmT1S6vOJg9gEIlWC+r3QxKkjuSa1nQ==}
 
   assertion-error@2.0.1:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
@@ -944,8 +944,8 @@ packages:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
-  tinyrainbow@3.1.1:
-    resolution: {integrity: sha512-yau8yJdTt989Mm0Bd/236QnzEiPf2xLLTqUZRUJOo/3CB078LSwzei343DgtJVmfJKJE3TMINY1u42SQsP6mXw==}
+  tinyrainbow@3.2.0:
+    resolution: {integrity: sha512-LgO3D9yZJjApUiuUfl9iFAwrtaX4+lok3wJIqttGoKCHlWUqHqbQpnxCf82L8FjgKsh4iGo78hqJwgL8F6To2A==}
     engines: {node: '>=14.0.0'}
 
   totalist@3.0.1:
@@ -1335,27 +1335,27 @@ snapshots:
     optionalDependencies:
       vite: 8.3.0(jiti@2.7.0)
 
-  '@vitest/pretty-format@5.0.0':
+  '@vitest/pretty-format@5.0.5':
     dependencies:
-      tinyrainbow: 3.1.1
+      tinyrainbow: 3.2.0
 
   '@vitest/spy@5.0.0': {}
 
-  '@vitest/ui@5.0.0(vitest@5.0.0)':
+  '@vitest/ui@5.0.5(vitest@5.0.0)':
     dependencies:
-      '@vitest/utils': 5.0.0
+      '@vitest/utils': 5.0.5
       fflate: 0.8.3
       flatted: 3.4.4
       pathe: 2.0.3
       sirv: 3.0.2
-      tinyrainbow: 3.1.1
-      vitest: 5.0.0(@vitest/ui@5.0.0)(vite@8.3.0(jiti@2.7.0))
+      tinyrainbow: 3.2.0
+      vitest: 5.0.0(@vitest/ui@5.0.5)(vite@8.3.0(jiti@2.7.0))
 
-  '@vitest/utils@5.0.0':
+  '@vitest/utils@5.0.5':
     dependencies:
-      '@vitest/pretty-format': 5.0.0
+      '@vitest/pretty-format': 5.0.5
       convert-source-map: 2.0.0
-      tinyrainbow: 3.1.1
+      tinyrainbow: 3.2.0
 
   assertion-error@2.0.1: {}
 
@@ -1595,7 +1595,7 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
 
-  tinyrainbow@3.1.1: {}
+  tinyrainbow@3.2.0: {}
 
   totalist@3.0.1: {}
 
@@ -1637,7 +1637,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.7.0
 
-  vitest@5.0.0(@vitest/ui@5.0.0)(vite@8.3.0(jiti@2.7.0)):
+  vitest@5.0.0(@vitest/ui@5.0.5)(vite@8.3.0(jiti@2.7.0)):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/mocker': 5.0.0(vite@8.3.0(jiti@2.7.0))
@@ -1654,7 +1654,7 @@ snapshots:
       vite: 8.3.0(jiti@2.7.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@vitest/ui': 5.0.0(vitest@5.0.0)
+      '@vitest/ui': 5.0.5(vitest@5.0.0)
     transitivePeerDependencies:
       - msw
 
